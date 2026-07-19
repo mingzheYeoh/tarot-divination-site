@@ -100,8 +100,13 @@ markup is ported into JSX.
 
 ## Shared Layout Components
 
-Because header and footer markup is byte-identical across all 17 Stitch exports, they
-become one-time shared components rather than being duplicated per page:
+Header/footer markup is *thematically* consistent across the 17 Stitch exports but not
+byte-identical — Stitch regenerated slightly different structure each time (e.g. Home's
+footer omits the large "MIDNIGHT ORACLE" wordmark that most other pages include; the nav
+wrapper element differs between pages). Rather than picking one page's version
+arbitrarily, the shared components below normalize to one canonical implementation
+(using the more common footer pattern with the wordmark, and semantic `<header>` +
+`<nav>` markup), which every page — including Home — will use going forward:
 
 - **`Nav`**: "MIDNIGHT ORACLE" wordmark + 首页/抽牌占卜/牌意图鉴/关于 links (active-route
   styling) + settings/account Material Symbol icons, fixed top bar with blur backdrop

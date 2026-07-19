@@ -28,7 +28,10 @@ describe('Major Arcana card data', () => {
   it('has exactly 22 structural entries numbered 0-21', () => {
     expect(cards).toHaveLength(22)
     const ids = cards.map((c) => c.id).sort()
-    const expected = Array.from({ length: 22 }, (_, i) => `major_${String(i).padStart(2, '0')}`).sort()
+    const expected = Array.from(
+      { length: 22 },
+      (_, i) => `major_${String(i).padStart(2, '0')}`,
+    ).sort()
     expect(ids).toEqual(expected)
   })
 

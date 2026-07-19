@@ -24,6 +24,8 @@ describe('Nav', () => {
       </MemoryRouter>,
     )
     expect(screen.getByRole('link', { name: '关于' }).className).toContain('text-primary')
-    expect(screen.getByRole('link', { name: '首页' }).className).toContain('text-on-surface-variant')
+    expect(screen.getByRole('link', { name: '首页' }).className).toContain(
+      'text-on-surface-variant',
+    )
   })
 })

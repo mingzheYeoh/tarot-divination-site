@@ -43,7 +43,9 @@ export default function HomePage() {
                   <span className="material-symbols-outlined text-sm">auto_fix_high</span>
                 </span>
                 <div className="absolute -right-2 -top-2 w-8 h-8 rounded-full border border-primary/50 flex items-center justify-center bg-card-back shadow-lg group-hover:rotate-45 transition-transform duration-700">
-                  <span className="material-symbols-outlined text-[12px] text-primary">ac_unit</span>
+                  <span className="material-symbols-outlined text-[12px] text-primary">
+                    ac_unit
+                  </span>
                 </div>
               </Link>
             </div>

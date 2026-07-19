@@ -1,0 +1,11 @@
+dist
+node_modules
+*.tsbuildinfo
+
+# Non-source directories: design mockup exports (raw Stitch HTML, not app
+# code), reference content dumps, planning docs, and SDD process artifacts.
+# Not part of the application codebase the lint/format tooling governs.
+design
+content
+docs
+.superpowers

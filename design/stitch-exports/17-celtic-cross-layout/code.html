@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Midnight Oracle - Celtic Cross Spread</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&amp;family=Inter:wght@400;600&amp;family=Playfair+Display:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#e8dff3",
+                    "surface-bright": "#3c3746",
+                    "surface-container": "#221d2c",
+                    "on-primary-fixed": "#261a00",
+                    "on-primary": "#402d00",
+                    "card-back": "#3D0C29",
+                    "tertiary-fixed-dim": "#fcb0d4",
+                    "on-secondary-fixed": "#2b0053",
+                    "background": "#16111f",
+                    "outline-variant": "#4e4637",
+                    "on-tertiary-fixed-variant": "#6c3451",
+                    "surface-container-high": "#2d2836",
+                    "glow-violet": "#2A1B3D",
+                    "inverse-surface": "#e8dff3",
+                    "secondary-container": "#5c2d90",
+                    "background-void": "#0B0714",
+                    "surface-dim": "#16111f",
+                    "primary-fixed-dim": "#ebc166",
+                    "tertiary-container": "#da92b4",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#5c2d90",
+                    "error": "#ffb4ab",
+                    "on-tertiary-fixed": "#380725",
+                    "accent-magenta": "#7B4397",
+                    "error-container": "#93000a",
+                    "primary-container": "#c9a24b",
+                    "background-nebula": "#120C1F",
+                    "primary": "#ebc166",
+                    "tertiary-fixed": "#ffd8e8",
+                    "on-primary-container": "#4f3900",
+                    "tertiary": "#fcb0d4",
+                    "surface": "#16111f",
+                    "secondary-fixed-dim": "#dab8ff",
+                    "on-tertiary-container": "#602a47",
+                    "primary-fixed": "#ffdf9e",
+                    "on-secondary": "#451078",
+                    "surface-container-highest": "#383241",
+                    "secondary": "#dab8ff",
+                    "on-secondary-container": "#cea2ff",
+                    "surface-container-low": "#1e1927",
+                    "on-surface-variant": "#d1c5b2",
+                    "highlight-lavender": "#E8DFFF",
+                    "on-error": "#690005",
+                    "surface-container-lowest": "#100c19",
+                    "on-background": "#e8dff3",
+                    "outline": "#9a8f7e",
+                    "secondary-fixed": "#efdbff",
+                    "inverse-on-surface": "#332e3d",
+                    "surface-variant": "#383241",
+                    "on-tertiary": "#521e3a",
+                    "surface-tint": "#ebc166",
+                    "on-primary-fixed-variant": "#5b4300",
+                    "inverse-primary": "#795902"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "stack-lg": "32px",
+                    "container-max": "1200px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "16px",
+                    "stack-md": "16px",
+                    "section-padding": "80px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Cinzel"],
+                    "display-lg": ["Cinzel"],
+                    "display-md": ["Cinzel"],
+                    "body-md": ["Inter"],
+                    "tagline-italic": ["Playfair Display"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-caps": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "display-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "tagline-italic": ["20px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.8", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background: radial-gradient(circle at center, #1a1425 0%, #0b0714 100%);
+            overflow-x: hidden;
+        }
+        .starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            background-image: 
+                radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 40px 70px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            opacity: 0.15;
+            animation: starsMove 120s linear infinite;
+        }
+        @keyframes starsMove {
+            from { background-position: 0 0; }
+            to { background-position: 1000px 1000px; }
+        }
+        .tarot-card {
+            width: 100px;
+            height: 160px;
+            perspective: 1000px;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 0.5rem;
+            border: 1px solid #c9a24b;
+            box-shadow: 0 0 15px rgba(42, 27, 61, 0.5);
+        }
+        .card-front {
+            background: #16111f;
+            transform: rotateY(0deg);
+        }
+        .card-back {
+            background-color: #3D0C29;
+            transform: rotateY(180deg);
+            background-image: url('https://www.transparenttextures.com/patterns/gold-scale.png'); /* Simulated gold filigree */
+        }
+        .is-flipped .card-inner {
+            transform: rotateY(0deg);
+        }
+        .not-flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+        .mid-flip {
+            animation: midFlipPulse 2s infinite alternate;
+        }
+        @keyframes midFlipPulse {
+            0% { transform: rotateY(90deg) scale(1.0); filter: brightness(1) drop-shadow(0 0 5px #ebc166); }
+            100% { transform: rotateY(90deg) scale(1.1); filter: brightness(2) drop-shadow(0 0 30px #ebc166); }
+        }
+        .gold-glow-slot {
+            box-shadow: inset 0 0 10px rgba(235, 193, 102, 0.2), 0 0 5px rgba(235, 193, 102, 0.1);
+            border: 1px dashed rgba(235, 193, 102, 0.4);
+        }
+        .burst-particles {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(235, 193, 102, 0.4) 0%, transparent 70%);
+            filter: blur(20px);
+            animation: burst 1.5s ease-out infinite;
+            z-index: -1;
+        }
+        @keyframes burst {
+            0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+        }
+        .divider-ornament {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, #ebc166 50%, transparent 100%);
+            position: relative;
+        }
+        .divider-ornament::after {
+            content: '✦';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ebc166;
+            background: #16111f;
+            padding: 0 10px;
+            font-size: 12px;
+        }
+        .animate-pulse-slow {
+            animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+    </style>
+</head>
+<body class="text-on-surface">
+<div class="starfield"></div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-outline-variant/30 shadow-[0_4px_20px_rgba(42,27,61,0.5)]">
+<div class="flex justify-between items-center px-margin-mobile md:px-gutter max-w-container-max mx-auto h-20">
+<div class="font-display-md text-display-md text-primary tracking-widest cursor-pointer active:scale-95 transition-transform">
+                Midnight Oracle
+            </div>
+<div class="hidden md:flex gap-stack-lg items-center">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">首页</a>
+<a class="font-label-caps text-label-caps text-primary border-b border-primary pb-1" href="#">抽牌占卜</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">牌意图鉴</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">关于</a>
+</div>
+<div class="flex gap-4 items-center">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:text-primary-fixed-dim transition-all active:scale-95" data-icon="settings">settings</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:text-primary-fixed-dim transition-all active:scale-95" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="relative z-10 pt-32 pb-section-padding flex flex-col items-center px-margin-mobile">
+<!-- Header & Progress -->
+<div class="text-center mb-12">
+<h1 class="font-tagline-italic text-tagline-italic italic text-on-surface-variant mb-2">命运的十重织锦</h1>
+<div class="divider-ornament w-64 mx-auto mb-6"></div>
+<div class="font-label-caps text-label-caps text-primary tracking-widest">
+                7 / 10
+            </div>
+</div>
+<!-- Celtic Cross Table -->
+<div class="relative w-full max-w-[1000px] flex flex-col md:flex-row justify-center items-start gap-16 md:gap-32 py-12 px-4 rounded-3xl bg-surface-container-low/40 backdrop-blur-sm border border-outline-variant/10 shadow-2xl">
+<!-- The Cross (Left) -->
+<div class="relative w-[340px] h-[400px] mx-auto md:mx-0">
+<!-- Position IV: Past (Left) -->
+<div class="absolute left-0 top-1/2 -translate-y-1/2 flex flex-col items-center">
+<div class="tarot-card is-flipped">
+<div class="card-inner">
+<div class="card-face card-front bg-cover bg-center" data-alt="A dark, moody, painterly illustration of a classic Tarot Major Arcana card. The art style is inspired by charcoal and oil painting, featuring deep indigos and metallic gold accents. The imagery depicts a lone traveler looking back at a stormy sea. Midnight Oracle aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAWzxS77Du9GF7nbfanFbhVB1mbwOKy6HJOlTYQT3mNDLsMsSDTmXAsh_5SgQcxYL_W9363aqhY9xiyBpTMrVxdNqIyo6KJ1VYa1L6fsPArB5L5eBLSleF6hS5UCfG5Md_4_mZrkNpzPQLsmZeBd1JKbqY3qWd5UH0spps4NkX4r0fVKhSDTx2HHXip_mUjgvyaffpABM40ITNijeNgpPECkPi22lfX2dhzTZl6JNV8oVNlhY9V-8O_aXzp8lARw4bWkR2ZIEQK4g')"></div>
+</div>
+</div>
+<span class="font-label-caps text-label-caps text-primary-fixed-dim mt-2">IV</span>
+</div>
+<!-- Central Stack (I & II) -->
+<div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+<!-- Position I: Present (Bottom) -->
+<div class="tarot-card is-flipped z-10">
+<div class="card-inner">
+<div class="card-face card-front bg-cover bg-center" data-alt="Tarot Major Arcana art depicting The Magician with intricate celestial symbols, glowing ethereal energy rising from their hands. High-contrast digital painting style, dark violet and gold color palette, Midnight Oracle ritual theme." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAbSrzawD3F-qIZ_idhHPzwf-xreEdqBq05H6cov5K2tRnxXlqxNPDkCB1AkBTpEyNSsljgidqgsE0uaMyomKDAa682QwLEWEbEa5FYrIr1yVlqELcy4vHtLeWaEs7E-_TsZIVFb-Y7R85rR0ieBF7fiNb1y1hNfljbHze4fMc_aqZZu8TYZ7aTbuKMGcAx_yppTmqIKS9rBG0lyaKs7gVRO5OboRxrIuNQ18pB30MpQLUok7MtN63yCuzuT6aSnBW9p3Q6kDAJSg')"></div>
+</div>
+</div>
+<!-- Position II: Challenge (Top Crosswise) -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 tarot-card is-flipped rotate-90 z-20">
+<div class="card-inner">
+<div class="card-face card-front bg-cover bg-center" data-alt="Tarot Major Arcana illustration showing two crossed swords over a dark, moonlit landscape. Elegant metallic lines, rich velvet textures, mystical atmosphere. Gold leaf borders." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBu43W55PyRGTWnPMw1adkEHWhftlAN-hoThGO8Kwjx19xKGRmQe88o2vxU8SGw9YRQ0407kcDGCYlJPX9bg-Ym1rjUsrBTbyb7K5ME34RvsjKC1cARz3AyZx9l5HYCVPqHoRKlhupDdnQCRtWTBC9iOT7QhHd_EicMd3z92W3G5X8oQvoOxsRL-zGdFIFRCZ-YpRhCQCv5W_Ye0ViT-OJHVL4aJtzlyAQCFElAKj5I1s7zQ0IVPc397vvFIp4Bd1l3lMcsCHGBLQ')"></div>
+</div>
+</div>
+<div class="mt-4 flex gap-4">
+<span class="font-label-caps text-label-caps text-primary-fixed-dim">I</span>
+<span class="font-label-caps text-label-caps text-primary-fixed-dim">II</span>
+</div>
+</div>
+<!-- Position VI: Future (Right) -->
+<div class="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col items-center">
+<div class="tarot-card is-flipped">
+<div class="card-inner">
+<div class="card-face card-front bg-cover bg-center" data-alt="A beautiful tarot card showing a sun rising behind a crystalline mountain range. Soft golden light bleeding into violet shadows. Painterly and detailed, with glowing gold geometric patterns. Midnight Oracle style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB3hLb5bx5GE2K5XzIUba-QSu30RX0XyaESML0m7ECQKgdZD2e60T1t02SFLSUnEPkUanMy9aRa1BfaZYye3oAdAwMP7A4jVwl2vUzAMTtvEHQl7lrcQNFHpbVhvqXi50gHwwxVapjXeckz2umHBwtd73O0OCyb45nrEDQqGVY5q7MFYOa7JGc7QTqy7Dkwr6XdLG2-DzOynpw8mn8OCbJdRRh1evomhG3xQ68cFtoiknj-esPkA1PYPRZ8IBIYqq_zYNuopS2ctQ')"></div>
+</div>
+</div>
+<span class="font-label-caps text-label-caps text-primary-fixed-dim mt-2">VI</span>
+</div>
+<!-- Position V: Above (Top) -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 flex flex-col items-center">
+<div class="tarot-card is-flipped">
+<div class="card-inner">
+<div class="card-face card-front bg-cover bg-center" data-alt="Tarot card art of a high priestess sitting between two pillars, glowing moon above her head. Dark, mysterious, cosmic aesthetic with nebula clouds and gold metallic foil details." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBDbk3EBb9zE-b1zFzib1Pmp5fCNAmJKKefKvq83DKfFGWc9BsoMFp6MMCmZw38E_zzvSg1nblK5VRYBBZOlMDLakPvQ8SLgQEND9oI0tIDecdfsvTQZOR0YZql8IqhUYTQfEUmSkaYSxJb5XQdILxb0KXL_cUNzhCVqJvCyDf2-rxThpCoKnnR-3RQPBlEaoxee72f4h5GSSY2yW3hc3i8aS4AKCScv5JVvo4At1KMEQcONnMRFkPS-oNE7rcwzV3mnePQCCx7Eg')"></div>
+</div>
+</div>
+<span class="font-label-caps text-label-caps text-primary-fixed-dim mt-2">V</span>
+</div>
+<!-- Position III: Below (Bottom) -->
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center">
+<div class="tarot-card is-flipped">
+<div class="card-inner">
+<div class="card-face card-front bg-cover bg-center" data-alt="A tarot card illustration representing roots and foundation, showing golden veins of energy flowing deep into the dark earth. Mystical, luminous, and elegant. Dark indigo background." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDTil2JDKK14XDw713AiRslrIhvECelAmI2iUh-TISGv-nwDX3fCqgGofAWAAG7LY3lQIVQlyLiyyZQTyH0Db7oKJV0BA1BEBsWCD2yXcywtOVmLz3mKV9I6udOOe603ExU5M8vsnaO91yMg9TSAYIAzVB5MyQGleYUgDgQeBzDWCiXzAUeelMfvMdUbGvaOGfgYjCDEr-JQx9ohU_Xk2-thxHo8qVn_Q_ncXoMffIbQhNxZKwmWI7l-yihStxulitemNU6vuEHcw')"></div>
+</div>
+</div>
+<span class="font-label-caps text-label-caps text-primary-fixed-dim mt-2">III</span>
+</div>
+</div>
+<!-- The Staff (Right) -->
+<div class="flex flex-col-reverse gap-6 items-center mx-auto md:mx-0">
+<!-- Position VII: Attitude (Current Flip) -->
+<div class="flex flex-col items-center relative">
+<div class="burst-particles"></div>
+<div class="tarot-card mid-flip z-30">
+<div class="card-inner">
+<div class="card-face card-back"></div>
+</div>
+</div>
+<span class="font-label-caps text-label-caps text-primary-fixed-dim mt-2 animate-pulse">VII</span>
+</div>
+<!-- Position VIII: External -->
+<div class="flex flex-col items-center">
+<div class="tarot-card not-flipped gold-glow-slot">
+<div class="card-inner">
+<div class="card-face card-back"></div>
+</div>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant/40 mt-2">VIII</span>
+</div>
+<!-- Position IX: Hopes/Fears -->
+<div class="flex flex-col items-center">
+<div class="tarot-card not-flipped gold-glow-slot">
+<div class="card-inner">
+<div class="card-face card-back"></div>
+</div>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant/40 mt-2">IX</span>
+</div>
+<!-- Position X: Outcome -->
+<div class="flex flex-col items-center">
+<div class="tarot-card not-flipped gold-glow-slot">
+<div class="card-inner">
+<div class="card-face card-back"></div>
+</div>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant/40 mt-2">X</span>
+</div>
+</div>
+<!-- Legend Card (Floating Bottom Left) -->
+<div class="absolute bottom-6 left-6 p-4 rounded-lg bg-surface-container-highest/60 backdrop-blur-md border border-primary/30 shadow-lg max-w-[200px] hidden md:block">
+<h3 class="font-label-caps text-label-caps text-primary mb-3 text-[10px]">凯尔特十字牌阵图例</h3>
+<ul class="text-[10px] space-y-1 font-body-md text-on-surface-variant">
+<li><span class="text-primary font-bold">I</span> 现状</li>
+<li><span class="text-primary font-bold">II</span> 挑战</li>
+<li><span class="text-primary font-bold">III</span> 根基</li>
+<li><span class="text-primary font-bold">IV</span> 近期过去</li>
+<li><span class="text-primary font-bold">V</span> 可能结果</li>
+<li><span class="text-primary font-bold">VI</span> 近期未来</li>
+<li><span class="text-primary font-bold">VII</span> 自身态度</li>
+<li><span class="text-primary font-bold">VIII</span> 外部影响</li>
+<li><span class="text-primary font-bold">IX</span> 希望与恐惧</li>
+<li><span class="text-primary font-bold">X</span> 最终结果</li>
+</ul>
+</div>
+</div>
+<!-- Call to Action -->
+<button class="mt-16 px-12 py-4 rounded-full border border-primary bg-primary/5 hover:bg-primary/20 text-primary font-label-caps text-label-caps transition-all duration-500 shadow-[0_0_20px_rgba(235,193,102,0.1)] hover:shadow-[0_0_40px_rgba(235,193,102,0.3)] group overflow-hidden relative">
+<span class="relative z-10">揭示下一个维度</span>
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-primary/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+</button>
+</main>
+<!-- SideNavBar (Audio Toggle) -->
+<div class="fixed bottom-8 right-8 z-50">
+<div class="group relative flex items-center justify-center">
+<!-- Tooltip/Header simulation from SideNavBar metadata -->
+<div class="absolute bottom-full right-0 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none text-right">
+<p class="font-display-md text-[16px] text-primary">氛围音乐</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant">开启沉浸体验</p>
+</div>
+<!-- Toggle Button -->
+<div class="bg-surface-container-lowest/50 backdrop-blur-xl border border-primary/40 shadow-[0_0_15px_rgba(235,193,102,0.3)] rounded-full p-4 w-14 h-14 flex items-center justify-center cursor-pointer hover:scale-110 hover:shadow-[0_0_20px_rgba(235,193,102,0.5)] animate-pulse-slow active:rotate-12 transition-all">
+<span class="material-symbols-outlined text-primary scale-110" data-icon="brightness_3">brightness_3</span>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="w-full py-section-padding bg-background-void border-t border-outline-variant/20">
+<div class="flex flex-col items-center gap-stack-lg max-w-container-max mx-auto text-center px-margin-mobile">
+<div class="font-display-lg text-display-lg text-primary">Midnight Oracle</div>
+<div class="flex gap-gutter font-body-md text-body-md text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">隐私政策</a>
+<a class="hover:text-primary transition-colors" href="#">服务条款</a>
+<a class="hover:text-primary transition-colors" href="#">联系我们</a>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant opacity-60">© 2024 Midnight Oracle. 愿星辰指引你的道路。</p>
+</div>
+</footer>
+<script>
+        // Subtle micro-interaction for the cards
+        document.querySelectorAll('.tarot-card.is-flipped').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const xc = rect.width / 2;
+                const yc = rect.height / 2;
+                const dx = x - xc;
+                const dy = y - yc;
+                card.style.transform = `perspective(1000px) rotateY(${dx / 10}deg) rotateX(${-dy / 10}deg) scale(1.05)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)`;
+            });
+        });
+    </script>
+</body></html>

@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes stars {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 1000px 1000px;
+  }
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.starfield {
+  background-image: radial-gradient(circle at 1px 1px, #ffffff22 1px, transparent 0);
+  background-size: 40px 40px;
+  animation: stars 200s linear infinite;
+}
+
+.nebula {
+  background: radial-gradient(circle at 50% 50%, rgba(42, 27, 61, 0.8) 0%, transparent 70%);
+}
+
+/* External texture; consider self-hosting if the CDN becomes unreliable */
+.film-grain {
+  background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+  opacity: 0.05;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s infinite ease-in-out;
+}

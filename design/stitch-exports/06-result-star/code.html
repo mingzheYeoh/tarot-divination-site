@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>星星 · THE STAR | Midnight Oracle</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&amp;family=Inter:wght@300;400;600&amp;family=Playfair+Display:italic,wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-error-container": "#ffdad6",
+                "on-tertiary-container": "#602a47",
+                "on-primary": "#402d00",
+                "primary-fixed-dim": "#ebc166",
+                "card-back": "#3D0C29",
+                "tertiary-fixed-dim": "#fcb0d4",
+                "on-secondary": "#451078",
+                "surface-variant": "#383241",
+                "inverse-on-surface": "#332e3d",
+                "secondary-fixed": "#efdbff",
+                "outline-variant": "#4e4637",
+                "on-error": "#690005",
+                "on-secondary-container": "#cea2ff",
+                "tertiary": "#fcb0d4",
+                "secondary-container": "#5c2d90",
+                "glow-violet": "#2A1B3D",
+                "secondary": "#dab8ff",
+                "on-secondary-fixed-variant": "#5c2d90",
+                "tertiary-fixed": "#ffd8e8",
+                "surface-container-low": "#1e1927",
+                "on-primary-fixed": "#261a00",
+                "primary": "#ebc166",
+                "error": "#ffb4ab",
+                "background": "#16111f",
+                "on-tertiary-fixed": "#380725",
+                "surface-container-highest": "#383241",
+                "primary-fixed": "#ffdf9e",
+                "surface-container-high": "#2d2836",
+                "on-primary-container": "#4f3900",
+                "background-void": "#0B0714",
+                "inverse-surface": "#e8dff3",
+                "surface": "#16111f",
+                "on-surface": "#e8dff3",
+                "on-primary-fixed-variant": "#5b4300",
+                "on-surface-variant": "#d1c5b2",
+                "tertiary-container": "#da92b4",
+                "on-tertiary": "#521e3a",
+                "surface-tint": "#ebc166",
+                "inverse-primary": "#795902",
+                "primary-container": "#c9a24b",
+                "on-secondary-fixed": "#2b0053",
+                "on-background": "#e8dff3",
+                "accent-magenta": "#7B4397",
+                "highlight-lavender": "#E8DFFF",
+                "surface-dim": "#16111f",
+                "surface-container-lowest": "#100c19",
+                "surface-container": "#221d2c",
+                "surface-bright": "#3c3746",
+                "background-nebula": "#120C1F",
+                "error-container": "#93000a",
+                "outline": "#9a8f7e",
+                "on-tertiary-fixed-variant": "#6c3451",
+                "secondary-fixed-dim": "#dab8ff"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "margin-mobile": "16px",
+                "container-max": "1200px",
+                "stack-md": "16px",
+                "stack-sm": "8px",
+                "stack-lg": "32px",
+                "gutter": "24px",
+                "section-padding": "80px"
+            },
+            "fontFamily": {
+                "display-lg": ["Cinzel"],
+                "display-md": ["Cinzel"],
+                "body-md": ["Inter"],
+                "label-caps": ["Cinzel"],
+                "body-lg": ["Inter"],
+                "tagline-italic": ["Playfair Display"]
+            },
+            "fontSize": {
+                "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                "display-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "label-caps": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                "body-lg": ["18px", {"lineHeight": "1.8", "fontWeight": "400"}],
+                "tagline-italic": ["20px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0B0714;
+            color: #e8dff3;
+            overflow-x: hidden;
+        }
+
+        .grain-texture {
+            background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .nebula-glow {
+            filter: blur(100px);
+            opacity: 0.4;
+            background: radial-gradient(circle, #2A1B3D 0%, #0B0714 70%);
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(1deg); }
+        }
+
+        .shimmer-border {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shimmer-border::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 20%,
+                rgba(235, 193, 102, 0.3) 50%,
+                transparent 80%
+            );
+            transform: rotate(25deg);
+            animation: shimmer 4s infinite linear;
+            pointer-events: none;
+        }
+
+        @keyframes shimmer {
+            from { transform: translateX(-100%) rotate(25deg); }
+            to { transform: translateX(100%) rotate(25deg); }
+        }
+
+        .glass-parchment {
+            background: linear-gradient(135deg, rgba(34, 29, 44, 0.9) 0%, rgba(22, 17, 31, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            border-left: 1px solid rgba(201, 162, 75, 0.3);
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #c9a24b;
+            border-radius: 10px;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        .wax-seal {
+            background: radial-gradient(circle at center, #c9a24b 0%, #795902 100%);
+            box-shadow: 0 4px 15px rgba(201, 162, 75, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.2);
+        }
+
+        .ornament-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            width: 100%;
+        }
+        .ornament-line::before, .ornament-line::after {
+            content: '';
+            height: 1px;
+            flex-grow: 1;
+            background: linear-gradient(to right, transparent, #c9a24b, transparent);
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md selection:bg-primary/30">
+<!-- Global Background Elements -->
+<div class="fixed inset-0 z-0">
+
+<div class="absolute inset-0 nebula-glow"></div>
+<div class="absolute inset-0 grain-texture"></div>
+</div>
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-outline-variant/30 shadow-[0_4px_20px_rgba(42,27,61,0.5)]">
+<nav class="flex justify-between items-center px-margin-mobile md:px-gutter max-w-container-max mx-auto h-20">
+<div class="font-display-md text-display-md text-primary tracking-widest cursor-pointer transition-transform active:scale-95">
+                Midnight Oracle
+            </div>
+<div class="hidden md:flex items-center gap-stack-lg font-label-caps text-label-caps">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">首页</a>
+<a class="text-primary border-b border-primary pb-1" href="#">抽牌占卜</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">牌意图鉴</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">关于</a>
+</div>
+<div class="flex items-center gap-stack-md text-primary">
+<button class="cursor-pointer transition-transform active:scale-95 hover:text-primary-fixed-dim duration-300">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="cursor-pointer transition-transform active:scale-95 hover:text-primary-fixed-dim duration-300">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</nav>
+</header>
+<!-- Main Content: Split Screen Layout -->
+<main class="relative z-10 pt-20 h-screen flex flex-col md:flex-row overflow-hidden">
+<!-- Left: The Card Display -->
+<section class="flex-1 flex flex-col items-center justify-center p-gutter relative overflow-hidden">
+<div class="absolute inset-0 pointer-events-none">
+
+</div>
+<div class="floating relative group">
+<!-- Ambient Glow Halo -->
+<div class="absolute -inset-10 bg-primary/20 blur-[60px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+<!-- The Star Card -->
+<div class="relative w-[280px] md:w-[400px] aspect-[2/3.5] rounded-xl overflow-hidden border border-primary/60 shadow-[0_0_50px_rgba(235,193,102,0.3)] bg-surface-container-highest">
+<div class="absolute inset-0 shimmer-border z-20"></div>
+<img class="w-full h-full object-cover" data-alt="A cinematic, high-detail Tarot card illustration of The Star. A graceful ethereal woman kneels by a shimmering pool under a vast indigo night sky illuminated by one giant glowing eight-pointed gold star and seven smaller silver ones. She pours water from two golden vessels into the land and the water. The art style is lush, tactile, and mystical with intricate gold filigree, rich purples, and deep cosmic blues, feeling premium and ancient." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjih6tL_CRnUlT-SG_6Ig1n5J1MiRQ_Jsf9NNCTjwOZNiohoKUvDCr0UBaRff9G_bI32i619H6wdlgZ3hGg9q4kp_CI8LSnB2crmJPCB3NVUv3nA3N7-mp5DjZ7SNISsScnA30uZFp3wQE9PodduFcTTLZ1V8fl4zuQ0yV3Dx5naSnoOrFAjEstRQ2Aq4-fGPnqmb1U5YXuu1prXmHIPMFY85PidmNmnvZBC1iYyUUlVZPrgnRnNhsRz0hC7oTZlcHT17ylqnBQg"/>
+</div>
+<!-- Interaction Toggle for Upright/Reversed -->
+<div class="absolute bottom-[-60px] left-1/2 -translate-x-1/2 flex items-center gap-4 bg-surface-container-low/80 backdrop-blur-md px-6 py-2 rounded-full border border-primary/20">
+<span class="font-label-caps text-label-caps text-on-surface-variant">正位</span>
+<button class="text-primary hover:rotate-180 transition-transform duration-500 flex items-center" id="rotate-card">
+<span class="material-symbols-outlined">sync</span>
+</button>
+<span class="font-label-caps text-label-caps text-on-surface-variant/40">逆位</span>
+</div>
+</div>
+</section>
+<!-- Right: Interpretation Panel -->
+<aside class="w-full md:w-[500px] glass-parchment h-full flex flex-col p-10 custom-scrollbar overflow-y-auto">
+<!-- Header -->
+<div class="space-y-4 mb-stack-lg">
+<div class="flex items-center gap-2 text-primary opacity-70">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-caps text-[12px] tracking-[0.2em]">MAJOR ARCANA XVII</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-primary">星星 · THE STAR</h1>
+<!-- Keywords -->
+<div class="flex flex-wrap gap-stack-sm pt-2">
+<span class="px-4 py-1.5 rounded-full border border-primary text-primary font-label-caps text-[12px] tracking-widest">希望</span>
+<span class="px-4 py-1.5 rounded-full border border-primary text-primary font-label-caps text-[12px] tracking-widest">疗愈</span>
+<span class="px-4 py-1.5 rounded-full border border-primary text-primary font-label-caps text-[12px] tracking-widest">信念</span>
+</div>
+</div>
+<!-- Ornament -->
+<div class="ornament-line mb-stack-lg">
+<span class="material-symbols-outlined text-primary scale-75">auto_awesome</span>
+</div>
+<!-- Content -->
+<div class="space-y-stack-lg flex-1">
+<section>
+<h2 class="font-tagline-italic text-tagline-italic text-highlight-lavender mb-stack-sm italic">牌意解读</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                        当星星出现在你的面前，宇宙正在向你传递一个明确的信号：暴风雨已经过去，宁静的疗愈时刻已经到来。这张牌代表着希望、灵感与深刻的内心平静。它就像是黑夜中指引航程的那道星光，告诉你只要保持信念，所有的裂痕终将被光芒填补。
+                    </p>
+</section>
+<section class="bg-surface-container-low/50 p-6 rounded-xl border-l-4 border-primary">
+<h2 class="font-label-caps text-label-caps text-primary mb-stack-sm">给你的建议</h2>
+<p class="font-body-md text-body-md text-on-surface">
+                        现在是放下过去重担、允许自己重新连接灵感的最佳时机。尝试在寂静中倾听内心的声音，你会发现一个更宏大的视角正在徐徐展开。不必急于求成，宇宙的节奏自有安排。
+                    </p>
+</section>
+</div>
+<!-- Action Buttons -->
+<div class="mt-auto pt-stack-lg flex flex-col gap-4">
+<button class="wax-seal w-full py-5 rounded-full font-label-caps text-label-caps text-on-primary tracking-[0.3em] transition-all hover:scale-[1.02] active:scale-95 group">
+                    再抽一张
+                    <span class="inline-block transition-transform group-hover:translate-x-2 ml-2">→</span>
+</button>
+<button class="w-full py-5 rounded-full border border-primary/40 font-label-caps text-label-caps text-primary tracking-[0.2em] transition-all hover:bg-primary/5 active:scale-95">
+                    保存此次占卜
+                </button>
+</div>
+</aside>
+</main>
+<!-- Side Atmosphere Controls -->
+<div class="fixed bottom-8 right-8 z-50">
+<div class="bg-surface-container-lowest/50 backdrop-blur-xl border border-primary/40 rounded-full p-2 flex flex-col gap-2 shadow-[0_0_15px_rgba(235,193,102,0.3)] animate-pulse-slow">
+<div class="w-12 h-12 flex items-center justify-center text-primary cursor-pointer hover:scale-110 transition-transform active:rotate-12" title="环境音乐">
+<span class="material-symbols-outlined">brightness_3</span>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="relative z-10 bg-background-void border-t border-outline-variant/20 py-section-padding px-margin-mobile">
+<div class="max-w-container-max mx-auto flex flex-col items-center gap-stack-lg text-center">
+<div class="font-display-lg text-display-lg text-primary opacity-80">Midnight Oracle</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+                © 2024 Midnight Oracle. 愿星辰指引你的道路。
+            </p>
+<div class="flex gap-stack-lg font-label-caps text-label-caps">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">隐私政策</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">服务条款</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">联系我们</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions
+        const rotateBtn = document.getElementById('rotate-card');
+        const cardContainer = document.querySelector('.floating');
+        let isReversed = false;
+
+        rotateBtn.addEventListener('click', () => {
+            isReversed = !isReversed;
+            const cardImg = document.querySelector('.floating img');
+            cardImg.style.transition = 'transform 1.2s cubic-bezier(0.4, 0, 0.2, 1)';
+            cardImg.style.transform = isReversed ? 'rotate(180deg)' : 'rotate(0deg)';
+            
+            // Text feedback for state change
+            const labels = rotateBtn.parentElement.querySelectorAll('span');
+            if(isReversed) {
+                labels[0].style.opacity = '0.3';
+                labels[2].style.opacity = '1';
+            } else {
+                labels[0].style.opacity = '1';
+                labels[2].style.opacity = '0.3';
+            }
+        });
+
+        // Ambient noise interaction
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            const nebula = document.querySelector('.nebula-glow');
+            nebula.style.transform = `translate(${(x - 0.5) * 50}px, ${(y - 0.5) * 50}px)`;
+        });
+    </script>
+</body></html>

@@ -174,6 +174,69 @@ Layout:
 - Faint drifting stars visible in the darkness surrounding the parchment panel
 ```
 
+### 2.6 三牌阵 / Three-Card Spread(过去·现在·未来)
+
+补充于单牌流程之上:选牌与翻牌阶段复用 2.2 节的状态二/三/四(选牌悬停反馈、翻牌高光时刻都与张数无关,逐张翻开即可,2.2 节状态三已预留了 "1 / 3" 这样的计数器)。以下两段是三牌阵**独有**、需要新画的两个画面:铺牌布局,以及结果解读页。
+
+**铺牌布局(三张牌摊开于桌面)**
+
+```
+Design the three-card spread laying state for "Midnight Oracle", extending the existing single-card ritual flow (same velvet-table environment, starfield, candlelight). This state occurs as the user reveals the three drawn cards in sequence.
+
+Layout:
+- Three card slots arranged in a horizontal row at the center of the velvet table, evenly spaced with generous negative space between them
+- Each slot has a thin gold outline glowing softly even before a card is placed, subtly numbered "I" "II" "III" in small Cinzel caps beneath each slot
+- Small position labels beneath each slot in Playfair Display italic: "过去" (Past) under slot I, "现在" (Present) under slot II, "未来" (Future) under slot III
+- Slot I and II already show revealed cards (painterly illustrated major arcana fronts with thin gold border), while slot III shows a card mid-flip with the golden light-burst reveal effect from the single-card ritual, since revealing happens one card at a time in sequence
+- A thin progress indicator above the spread reads "2 / 3" in small gold Cinzel type
+- Caption above the table in elegant serif: "命运的三重回响" (The threefold echo of fate)
+```
+
+**结果解读页**
+
+```
+Design the three-card spread result/reading page for "Midnight Oracle", extending the single-card result page's visual language (same dark parchment-glass panel system, staggered fade-in blocks).
+
+Layout:
+- Top: three revealed cards displayed side by side, each with its position label above it in Cinzel small-caps ("过去" / "现在" / "未来"), card name beneath each card, each card gently floating with its own soft ambient glow
+- Below the three cards: a horizontal ornamental gold divider (moon-phase motif)
+- Below the divider: three side-by-side reading panels (one under each card, on the subtle parchment-textured dark glass), each containing a short keyword-pill row and 2-3 sentence interpretation specific to that position
+- Beneath the three individual panels, a wider unified panel titled "整体指引" (Overall guidance) in Cinzel, containing a synthesized paragraph that weaves the three cards into one coherent narrative arc
+- Two buttons at the bottom, same wax-seal/ghost-outline style as the single-card result page: "再抽一次" (draw again) and "保存此次占卜" (save this reading)
+```
+
+### 2.7 凯尔特十字 / Celtic Cross Spread(十张牌)
+
+同样复用 2.2 节的选牌/翻牌交互,以下两段是凯尔特十字**独有**的画面。位置命名采用最通行的现代十位版本(源自 Waite 原始阵型、被绝大多数塔罗书籍与 App 采用),确保牌阵本身对懂塔罗的人来说是"正宗"的:
+
+I 现状 · II 挑战 · III 根基 · IV 近期过去 · V 可能结果 · VI 近期未来 · VII 自身态度 · VIII 外部影响 · IX 希望与恐惧 · X 最终结果
+
+**铺牌布局(十字 + 侧列)**
+
+```
+Design the Celtic Cross ten-card spread laying state for "Midnight Oracle", same velvet-table dark mystical environment, extending the established ritual flow.
+
+Layout:
+- The classic Celtic Cross layout rendered on the velvet table: a central cross of six cards (one card horizontal, laid crosswise directly on top of a second vertical card at the center, surrounded by four cards above/below/left/right forming a small cross), plus a vertical staff of four cards running along the right side of the table from bottom to top
+- Each of the 10 positions has a thin gold outline slot, small position number in Cinzel caps (I through X)
+- A subtle position-name key rendered as a small collapsible gold-bordered legend card in the lower-left corner listing all ten position names in compact Chinese text: "I 现状 II 挑战 III 根基 IV 近期过去 V 可能结果 VI 近期未来 VII 自身态度 VIII 外部影响 IX 希望与恐惧 X 最终结果"
+- Several of the ten slots already show revealed painterly major-arcana card fronts, with the currently-active slot mid-flip showing the golden light-burst reveal effect
+- A thin progress indicator reads "7 / 10" in small gold Cinzel type
+- Caption above the table: "命运的十重织锦" (The tenfold tapestry of fate)
+```
+
+**结果解读页**
+
+```
+Design the Celtic Cross result/reading page for "Midnight Oracle", extending the established dark parchment-glass reading panel language.
+
+Layout:
+- Top section: a compact static rendering of the completed ten-card cross-and-staff layout (small card thumbnails in their correct spread positions, each labeled with a small Roman numeral), acting as a visual map of the reading
+- Below the map: a vertical accordion-style list of all ten positions, each row showing: position number + name (e.g. "III 根基 · Foundation"), the card's name and small thumbnail, a 2-3 sentence position-specific interpretation; only the first 2-3 rows shown expanded by default with the rest collapsed to avoid overwhelming the reader
+- Beneath the accordion, a wider "整体指引" (Overall guidance) panel synthesizing the ten cards into one coherent narrative, same styling as the three-card spread's synthesis panel
+- Same two-button footer as other result pages: "再抽一次" / "保存此次占卜"
+```
+
 ---
 
 ## 三、"极具创意性"的抽卡/阅卡体验设计说明

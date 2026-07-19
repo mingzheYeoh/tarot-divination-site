@@ -49,6 +49,17 @@ entirely client-side, no backend required.
   behavior given Supabase auth doesn't exist yet.
 - **"再抽一次" (draw again)**: resets `ReadingSessionContext` and returns to the
   intention step.
+- **Animation scope boundary, made concrete against the actual mockup source** (read
+  during plan-writing, not just the earlier prose description): the Stitch exports for
+  shuffle/select/reveal include a canvas-based particle system (100 particles,
+  `requestAnimationFrame` loop), JS-injected floating runes on a `setInterval`, a
+  mouse-parallax 3D deck tilt, and a `element.animate()`-driven particle burst on
+  reveal. All of these are cut for this sub-project — they're exactly the "GSAP/
+  tsParticles-era" richness already deferred, just implemented via raw Canvas/Web
+  Animations API instead of a library. Kept: the 15-card fan arc (pure CSS `transform`
+  math, computed once per card position, not an animation), the CSS 3D flip
+  (`perspective`/`rotateY`/`backface-visibility`), and simple `@keyframes` (pulse,
+  shimmer sweep, progress ring spin).
 
 ## Architecture
 
@@ -120,7 +131,7 @@ src/
     draw/
       IntentionStep.tsx     # question textarea + "开始洗牌" button
       ShuffleStep.tsx       # animated shuffling state, auto-advances via finishShuffle() after 2s
-      SelectStep.tsx        # fanned spread of 12 face-down TarotCard instances
+      SelectStep.tsx        # fanned spread of 15 face-down TarotCard instances (matching design/stitch-exports/04-select's hardcoded 15-card arc)
       RevealStep.tsx        # single TarotCard mid-flip animation + "查看解读" button (manual advance, not timer-based, matching the approved design's fade-in button)
       ResultStep.tsx        # name/keywords/meaning/advice + question reference + action buttons
       TarotCard.tsx          # shared: renders a card back or front, handles the flip
@@ -131,9 +142,34 @@ src/
     ReadingSessionContext.tsx   # MODIFIED: expanded per Architecture above
 ```
 
-`TarotCard` is the one shared visual primitive reused by `SelectStep` (12 face-down
+`TarotCard` is the one shared visual primitive reused by `SelectStep` (15 face-down
 instances), `RevealStep` (one card mid-flip), and `ResultStep` (one revealed card) —
 avoiding three separate card-rendering implementations.
+
+## Card Images
+
+Both `design/stitch-exports/05-reveal` and `06-result-star` reference an AI-generated
+placeholder illustration (Stitch/Gemini output, hosted on Google's CDN) for "The Star"
+specifically — not real Rider-Waite-Smith artwork, and not something to port into the
+app. This matches the original project brief's own stated principle: Stitch generates
+the template once, real per-card artwork comes from an authoritative source separately.
+
+The real source was already identified and license-checked during the content
+sub-project (`content/SOURCES.md`): [github.com/searge/tarot](https://github.com/searge/tarot),
+`assets/img/big/maj00.jpg` through `maj21.jpg` — the image folder carries
+public-domain-style (Unlicense) terms, distinct from the repo's overall CC-BY-SA-4.0
+badge, and the underlying 1909 Pamela Colman Smith artwork is itself public domain.
+
+This sub-project downloads all 22 files into `public/assets/tarot/maj00.jpg` through
+`maj21.jpg` (matching the `image` field already present in `src/data/cards-major.json`,
+e.g. `/assets/tarot/maj00.jpg`), so `TarotCard`'s front face renders real card art via
+`<img src={card.image}>` rather than a placeholder or a hotlinked third-party demo URL.
+
+Decorative Stitch-CDN images not tied to actual card content — the intention step's
+candle/incense photos, the shuffle step's velvet-texture/gold-filigree backgrounds —
+are dropped from the port entirely, the same call already made for the Home page
+conversion in the scaffold sub-project: they're AI-generated preview assets, not
+production-appropriate hardcoded third-party dependencies.
 
 ## Result Page Content
 

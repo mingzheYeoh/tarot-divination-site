@@ -237,6 +237,80 @@ Layout:
 - Same two-button footer as other result pages: "再抽一次" / "保存此次占卜"
 ```
 
+### 2.8 注册 · 占卜师身份仪式 / Register — Diviner Identity Ritual
+
+用三步式的"身份仪式"取代传统注册表单,呼应"游戏角色创建"的体验:选原型 → 铸造印记 → 用邮箱密码封印契约。三个状态分别贴给 Stitch 生成。底层技术仍是 Supabase 标准的 email+password 注册,只是把最后一步包装成"封印仪式"。
+
+**步骤一:选择原型(Choose Archetype)**
+
+```
+Design the first step of the account registration ritual for "Midnight Oracle" — choosing a diviner archetype, replacing a traditional signup form with a game-like character selection moment. Same dark mystical design system (deep indigo, gold accents, starfield).
+
+Layout:
+- Centered heading in Cinzel: "你，是哪一种占卜者？" (What kind of diviner are you?)
+- A subtitle in Playfair Display italic beneath: "选择你的原型，它将伴随你走过每一次占卜" (Choose your archetype — it will accompany every reading)
+- A row/grid of 4-5 archetype cards, each a tall gold-bordered card with: a unique thin-line celestial icon (crescent moon for "先知 Seer", alchemical triangle for "炼金术士 Alchemist", eight-pointed star for "占星家 Astrologer", eye for "灵媒 Medium", open book for "贤者 Sage"), the archetype name in Cinzel, and a one-line italic descriptor beneath in small type
+- One card shown in a "selected/hovered" state: slightly larger, lifted with a soft gold glow and a thin animated-looking light ring around its border, visually distinct from the others
+- A progress indicator at the top: three small dots/glyphs, first one filled gold (step 1 of 3)
+- A gold wax-seal "下一步" (Next) button at the bottom, disabled/dim until a card is selected
+```
+
+**步骤二:铸造印记(Forge Your Sigil)**
+
+```
+Design the second step of the registration ritual — creating a personal sigil/crest, same dark mystical design system, continuing from the archetype-selection step.
+
+Layout:
+- Progress indicator now shows step 2 of 3
+- Centered heading: "铸造属于你的印记" (Forge your own sigil)
+- A large circular emblem in the center showing a sigil being assembled from thin gold linework — a base circle with 3-4 small selectable symbol slots around it (moon phase, star, wand, cup, sword, pentacle motifs), one or two already placed and glowing softly
+- Below the circle, a horizontal row of selectable symbol chips (thin gold-outlined circles with celestial icons) that the user can add to their sigil, one shown in an "active/dragging toward center" state with a faint golden trail connecting it to the circle
+- A small "重新铸造" (reforge/reset) ghost-outline button off to the side
+- A gold wax-seal "下一步" (Next) button at the bottom
+```
+
+**步骤三:封印仪式(Seal the Pact — email/password)**
+
+```
+Design the third and final step of the registration ritual — sealing the account with credentials, same dark mystical design system.
+
+Layout:
+- Progress indicator shows step 3 of 3, all three glyphs now gold-filled
+- Centered heading: "以你的真名，封印这份契约" (Seal this pact with your true name)
+- A preview of the just-created identity above the form: the chosen archetype icon + assembled sigil, small and centered, with the archetype name in Cinzel beneath it
+- Below that, two minimal parchment-style input fields with thin gold bottom-borders (no boxy outlines): "邮箱" (Email) and "密码" (Password), Playfair Display italic placeholder text
+- A large gold wax-seal button labeled "完成封印" (Complete the seal), styled with a dripping-wax-seal visual metaphor — small animated-looking wax drop icon beside the text
+- Small text link beneath: "已经踏上旅程？前往登录" (Already on the journey? Go to login)
+```
+
+### 2.9 登录页 / Login(Returning Diviner)
+
+```
+Design the login page for returning users on "Midnight Oracle", same dark mystical design system, deliberately shorter/simpler than the registration ritual since this is a quick return visit rather than a first-time ceremony.
+
+Layout:
+- Centered heading in Cinzel: "欢迎回来，旅人" (Welcome back, traveler)
+- Small subtitle in Playfair Display italic: "星辰记得你的名字" (The stars remember your name)
+- Two minimal parchment-style input fields, same thin gold bottom-border style as the registration seal step: "邮箱" (Email) and "密码" (Password)
+- A gold wax-seal button labeled "进入" (Enter)
+- A small ghost-outline secondary option below: "忘记密码？" (Forgot password?) and a subtle divider with "或" (or) leading to a Google icon button for OAuth sign-in
+- Small text link at the bottom: "初次到访？开始身份仪式" (First time here? Begin the identity ritual)
+```
+
+### 2.10 占卜师主页 / Profile Dashboard
+
+```
+Design the logged-in user's personal profile/dashboard page for "Midnight Oracle", same dark mystical design system.
+
+Layout:
+- Top profile header section: the user's sigil/crest emblem large and centered-left, their chosen archetype name in Cinzel beside it (e.g. "先知 · 艾莉丝的旅程"), a small "仪式等级" (ritual rank) label beneath in gold small-caps
+- A row of 2-3 stat chips beside the header: "仪式频率" (streak) shown as a small flame/star icon with a number ("连续 7 天" / 7-day streak), "总占卜次数" (total readings) with a count, styled as pill-shaped gold-outlined chips consistent with the keyword-pill style from the result pages
+- Below the header: an ornamental gold divider
+- A section titled "占卜记录" (Reading history) in Cinzel, showing a vertical list of past-reading cards — each row a compact dark glass panel with: small card thumbnail(s) (1 for single-card readings, 3/10 small thumbnails for spread readings), the date, the spread type label, and a truncated preview of the question/first line of interpretation; each row has a soft gold border that brightens on hover
+- Rows fade in with a slight staggered vertical offset, consistent with the result page's reveal pattern
+- A small settings/gear icon in the top-right corner for account settings, consistent placement with the top nav bar's existing gear icon from the homepage design
+```
+
 ---
 
 ## 三、"极具创意性"的抽卡/阅卡体验设计说明

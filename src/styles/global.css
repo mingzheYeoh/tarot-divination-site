@@ -46,3 +46,19 @@
 .animate-pulse-slow {
   animation: pulse-slow 4s infinite ease-in-out;
 }
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 20px rgba(232, 223, 255, 0.4));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 45px rgba(232, 223, 255, 0.7));
+    transform: scale(1.02);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}

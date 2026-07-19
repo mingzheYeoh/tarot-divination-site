@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Midnight Oracle - Seal the Pact</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&amp;family=Inter:wght@400;600&amp;family=Playfair+Display:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#402d00",
+                        "inverse-on-surface": "#332e3d",
+                        "secondary-fixed": "#efdbff",
+                        "tertiary-container": "#da92b4",
+                        "background": "#16111f",
+                        "on-secondary-fixed-variant": "#5c2d90",
+                        "glow-violet": "#2A1B3D",
+                        "background-nebula": "#120C1F",
+                        "background-void": "#0B0714",
+                        "secondary-container": "#5c2d90",
+                        "error-container": "#93000a",
+                        "surface-container-lowest": "#100c19",
+                        "tertiary": "#fcb0d4",
+                        "surface-tint": "#ebc166",
+                        "inverse-primary": "#795902",
+                        "surface-container": "#221d2c",
+                        "secondary": "#dab8ff",
+                        "outline-variant": "#4e4637",
+                        "on-error-container": "#ffdad6",
+                        "on-surface": "#e8dff3",
+                        "on-secondary-fixed": "#2b0053",
+                        "surface-container-low": "#1e1927",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed-variant": "#6c3451",
+                        "on-secondary-container": "#cea2ff",
+                        "primary-fixed": "#ffdf9e",
+                        "on-primary-fixed": "#261a00",
+                        "card-back": "#3D0C29",
+                        "surface": "#16111f",
+                        "on-background": "#e8dff3",
+                        "on-surface-variant": "#d1c5b2",
+                        "inverse-surface": "#e8dff3",
+                        "on-tertiary-container": "#602a47",
+                        "on-tertiary-fixed": "#380725",
+                        "on-primary-fixed-variant": "#5b4300",
+                        "outline": "#9a8f7e",
+                        "on-tertiary": "#521e3a",
+                        "on-secondary": "#451078",
+                        "primary-fixed-dim": "#ebc166",
+                        "accent-magenta": "#7B4397",
+                        "surface-container-high": "#2d2836",
+                        "secondary-fixed-dim": "#dab8ff",
+                        "surface-dim": "#16111f",
+                        "surface-bright": "#3c3746",
+                        "tertiary-fixed": "#ffd8e8",
+                        "on-primary-container": "#4f3900",
+                        "primary": "#ebc166",
+                        "surface-container-highest": "#383241",
+                        "surface-variant": "#383241",
+                        "primary-container": "#c9a24b",
+                        "highlight-lavender": "#E8DFFF",
+                        "tertiary-fixed-dim": "#fcb0d4",
+                        "error": "#ffb4ab"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "80px",
+                        "gutter": "24px",
+                        "container-max": "1200px",
+                        "stack-sm": "8px",
+                        "margin-mobile": "16px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Cinzel"],
+                        "display-md": ["Cinzel"],
+                        "display-lg": ["Cinzel"],
+                        "body-lg": ["Inter"],
+                        "tagline-italic": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Cinzel"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "display-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.8", "fontWeight": "400"}],
+                        "tagline-italic": ["20px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0B0714;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, #16111f 0%, #0B0714 100%);
+            z-index: -1;
+            overflow: hidden;
+        }
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: twinkle var(--duration) infinite ease-in-out;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.2); }
+        }
+        .nebula-glow {
+            position: fixed;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(42,27,61,0.4) 0%, rgba(42,27,61,0) 70%);
+            filter: blur(80px);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .parchment-input {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #9a8f7e;
+            color: #e8dff3;
+            padding: 12px 0;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        .parchment-input:focus {
+            outline: none;
+            border-bottom-color: #ebc166;
+            box-shadow: 0 4px 10px -5px rgba(235,193,102,0.3);
+        }
+        .wax-seal-button {
+            position: relative;
+            background: #ebc166;
+            color: #402d00;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .wax-seal-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.4), transparent);
+            transform: rotate(45deg);
+            transition: 0.5s;
+            left: -150%;
+        }
+        .wax-seal-button:hover::after {
+            left: 150%;
+        }
+        .wax-seal-button:hover {
+            box-shadow: 0 0 30px rgba(235,193,102,0.4);
+            transform: translateY(-2px);
+        }
+        .sigil-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            border: 1px solid rgba(235,193,102,0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            background: radial-gradient(circle, rgba(235,193,102,0.05) 0%, transparent 80%);
+        }
+        .sigil-container::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border: 1px solid rgba(235,193,102,0.1);
+            border-radius: 50%;
+            animation: rotate 20s linear infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin: 32px 0;
+        }
+        .divider-line {
+            height: 1px;
+            flex-grow: 1;
+            background: linear-gradient(90deg, transparent, #9a8f7e, transparent);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- Ambient Background -->
+<div class="starfield" id="starfield"></div>
+<div class="nebula-glow" style="top: -10%; right: -10%;"></div>
+<div class="nebula-glow" style="bottom: -10%; left: -10%;"></div>
+<!-- Top Navigation (Shell Implementation) -->
+<nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-outline-variant/30 shadow-[0_4px_20px_rgba(42,27,61,0.5)]">
+<div class="flex justify-between items-center px-margin-mobile md:px-gutter max-w-container-max mx-auto h-20">
+<div class="font-display-md text-display-md text-primary tracking-widest cursor-pointer transition-transform active:scale-95">
+                MIDNIGHT ORACLE
+            </div>
+<div class="hidden md:flex gap-stack-lg items-center font-label-caps text-label-caps">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">首页</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">抽牌占卜</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">牌意图鉴</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">关于</a>
+</div>
+<div class="flex gap-4 items-center">
+<span class="material-symbols-outlined text-primary cursor-pointer transition-transform active:scale-95" data-icon="settings">settings</span>
+<span class="material-symbols-outlined text-primary cursor-pointer transition-transform active:scale-95" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</nav>
+<!-- Main Content Ritual Canvas -->
+<main class="min-h-screen flex flex-col items-center justify-center pt-24 pb-section-padding px-margin-mobile">
+<!-- Progress Indicator -->
+<div class="mb-stack-lg flex flex-col items-center gap-2">
+<div class="flex gap-4 items-center">
+<div class="w-2 h-2 rounded-full bg-primary/30"></div>
+<div class="w-2 h-2 rounded-full bg-primary/30"></div>
+<div class="w-4 h-4 rounded-full bg-primary shadow-[0_0_10px_rgba(235,193,102,0.8)] border border-primary-fixed"></div>
+</div>
+<span class="font-label-caps text-label-caps text-primary tracking-[0.2em] mt-2">STEP 03 / 03</span>
+</div>
+<!-- Ritual Header -->
+<div class="text-center mb-stack-lg">
+<h1 class="font-display-lg text-display-lg md:text-display-lg text-primary mb-2">以你的真名，封印这份契约</h1>
+<p class="font-tagline-italic text-tagline-italic text-on-surface-variant italic">The stars await your final word to bind the fate.</p>
+</div>
+<!-- Identity Preview -->
+<div class="relative w-full max-w-md bg-surface-container-low/40 backdrop-blur-xl border border-primary/20 rounded-xl p-8 mb-stack-lg text-center overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+<div class="sigil-container mb-6">
+<!-- Archetype Icon -->
+<span class="material-symbols-outlined text-[48px] text-primary" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="space-y-1">
+<h2 class="font-display-md text-display-md text-on-surface tracking-wider">隐者 · THE HERMIT</h2>
+<p class="font-label-caps text-label-caps text-primary">已觉醒的星辰共鸣者</p>
+</div>
+<div class="section-divider">
+<div class="divider-line"></div>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="star">star</span>
+<div class="divider-line"></div>
+</div>
+<!-- Form Content -->
+<form class="space-y-8 text-left" id="pactForm">
+<div class="group">
+<label class="font-label-caps text-label-caps text-on-surface-variant mb-1 block group-focus-within:text-primary transition-colors">邮箱 · EMAIL</label>
+<input class="parchment-input font-tagline-italic italic" placeholder="example@oracle.com" type="email"/>
+</div>
+<div class="group">
+<label class="font-label-caps text-label-caps text-on-surface-variant mb-1 block group-focus-within:text-primary transition-colors">密码 · CIPHER</label>
+<input class="parchment-input" placeholder="••••••••" type="password"/>
+</div>
+<div class="pt-4">
+<button class="wax-seal-button w-full py-4 rounded-full font-label-caps text-label-caps flex items-center justify-center gap-3" type="submit">
+<span class="material-symbols-outlined" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+                        完成封印
+                    </button>
+</div>
+</form>
+</div>
+<!-- Footer Subtle Link -->
+<p class="font-body-md text-on-surface-variant text-center max-w-sm">
+            点击“完成封印”即表示你已阅读并接受
+            <a class="text-primary underline decoration-primary/30 underline-offset-4 hover:text-primary-fixed transition-colors" href="#">命运条款</a>
+            与
+            <a class="text-primary underline decoration-primary/30 underline-offset-4 hover:text-primary-fixed transition-colors" href="#">星尘隐私政策</a>
+</p>
+</main>
+<!-- Side Audio Toggle (Shared Component Implementation) -->
+<div class="fixed bottom-8 right-8 rounded-full p-4 bg-surface-container-lowest/50 backdrop-blur-xl border border-primary/40 shadow-[0_0_15px_rgba(235,193,102,0.3)] flex items-center justify-center w-14 h-14 z-50 cursor-pointer animate-pulse-slow active:rotate-12 transition-all hover:scale-110 hover:shadow-[0_0_20px_rgba(235,193,102,0.5)] group">
+<span class="material-symbols-outlined text-primary" data-icon="brightness_3">brightness_3</span>
+<div class="absolute right-full mr-4 bg-surface-container-highest px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity whitespace-nowrap">
+<p class="font-label-caps text-label-caps text-primary">氛围音乐</p>
+<p class="text-[10px] text-on-surface-variant">开启沉浸体验</p>
+</div>
+</div>
+<!-- Footer (Shared Component Implementation) -->
+<footer class="w-full py-section-padding bg-background-void border-t border-outline-variant/20">
+<div class="flex flex-col items-center gap-stack-lg max-w-container-max mx-auto text-center px-margin-mobile">
+<div class="font-display-lg text-display-lg text-primary tracking-widest">MIDNIGHT ORACLE</div>
+<div class="flex gap-stack-lg">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">隐私政策</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">服务条款</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">联系我们</a>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant opacity-60">© 2024 Midnight Oracle. 愿星辰指引你的道路。</p>
+</div>
+</footer>
+<script>
+        // Generate Starfield
+        const starfield = document.getElementById('starfield');
+        const starCount = 150;
+        
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = Math.random() * 2 + 1 + 'px';
+            star.style.width = size;
+            star.style.height = size;
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.setProperty('--duration', (Math.random() * 3 + 2) + 's');
+            star.style.animationDelay = Math.random() * 5 + 's';
+            starfield.appendChild(star);
+        }
+
+        // Form Submission Interaction
+        document.getElementById('pactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin" data-icon="progress_activity">progress_activity</span> 正在建立连接...';
+            btn.style.opacity = '0.7';
+            btn.style.pointerEvents = 'none';
+            
+            setTimeout(() => {
+                alert('契约已封印。欢迎来到午夜占卜屋。');
+            }, 1500);
+        });
+
+        // Mouse parallax for nebula glow
+        document.addEventListener('mousemove', (e) => {
+            const glows = document.querySelectorAll('.nebula-glow');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            glows.forEach((glow, index) => {
+                const speed = (index + 1) * 20;
+                glow.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
+        });
+    </script>
+</body></html>

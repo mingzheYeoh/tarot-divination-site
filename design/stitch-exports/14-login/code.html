@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Midnight Oracle - 欢迎回来</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&amp;family=Inter:wght@300;400;600&amp;family=Playfair+Display:ital,wght@0,400;1,400&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@100..900&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#402d00",
+                    "inverse-on-surface": "#332e3d",
+                    "secondary-fixed": "#efdbff",
+                    "tertiary-container": "#da92b4",
+                    "background": "#16111f",
+                    "on-secondary-fixed-variant": "#5c2d90",
+                    "glow-violet": "#2A1B3D",
+                    "background-nebula": "#120C1F",
+                    "background-void": "#0B0714",
+                    "secondary-container": "#5c2d90",
+                    "error-container": "#93000a",
+                    "surface-container-lowest": "#100c19",
+                    "tertiary": "#fcb0d4",
+                    "surface-tint": "#ebc166",
+                    "inverse-primary": "#795902",
+                    "surface-container": "#221d2c",
+                    "secondary": "#dab8ff",
+                    "outline-variant": "#4e4637",
+                    "on-error-container": "#ffdad6",
+                    "on-surface": "#e8dff3",
+                    "on-secondary-fixed": "#2b0053",
+                    "surface-container-low": "#1e1927",
+                    "on-error": "#690005",
+                    "on-tertiary-fixed-variant": "#6c3451",
+                    "on-secondary-container": "#cea2ff",
+                    "primary-fixed": "#ffdf9e",
+                    "on-primary-fixed": "#261a00",
+                    "card-back": "#3D0C29",
+                    "surface": "#16111f",
+                    "on-background": "#e8dff3",
+                    "on-surface-variant": "#d1c5b2",
+                    "inverse-surface": "#e8dff3",
+                    "on-tertiary-container": "#602a47",
+                    "on-tertiary-fixed": "#380725",
+                    "on-primary-fixed-variant": "#5b4300",
+                    "outline": "#9a8f7e",
+                    "on-tertiary": "#521e3a",
+                    "on-secondary": "#451078",
+                    "primary-fixed-dim": "#ebc166",
+                    "accent-magenta": "#7B4397",
+                    "surface-container-high": "#2d2836",
+                    "secondary-fixed-dim": "#dab8ff",
+                    "surface-dim": "#16111f",
+                    "surface-bright": "#3c3746",
+                    "tertiary-fixed": "#ffd8e8",
+                    "on-primary-container": "#4f3900",
+                    "primary": "#ebc166",
+                    "surface-container-highest": "#383241",
+                    "surface-variant": "#383241",
+                    "primary-container": "#c9a24b",
+                    "highlight-lavender": "#E8DFFF",
+                    "tertiary-fixed-dim": "#fcb0d4",
+                    "error": "#ffb4ab"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-padding": "80px",
+                    "gutter": "24px",
+                    "container-max": "1200px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "16px",
+                    "stack-md": "16px",
+                    "stack-lg": "32px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Cinzel"],
+                    "display-md": ["Cinzel"],
+                    "display-lg": ["Cinzel"],
+                    "body-lg": ["Inter"],
+                    "tagline-italic": ["Playfair Display"],
+                    "body-md": ["Inter"],
+                    "display-lg-mobile": ["Cinzel"]
+            },
+            "fontSize": {
+                    "label-caps": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "display-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.8", "fontWeight": "400"}],
+                    "tagline-italic": ["20px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0B0714;
+            color: #e8dff3;
+            overflow-x: hidden;
+        }
+
+        .star-field {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, #16111f 0%, #0B0714 100%);
+            z-index: -1;
+        }
+
+        .nebula {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(92, 45, 144, 0.15) 0%, transparent 70%);
+            filter: blur(60px);
+            pointer-events: none;
+        }
+
+        .wax-seal-hover:hover {
+            box-shadow: 0 0 25px rgba(235, 193, 102, 0.4);
+            transform: scale(1.02);
+        }
+
+        .shimmer-border {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shimmer-border::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(235, 193, 102, 0.1),
+                transparent
+            );
+            transform: rotate(45deg);
+            animation: shimmer 4s infinite linear;
+            pointer-events: none;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .ritual-fade {
+            animation: ritualFadeIn 2s ease-out forwards;
+        }
+
+        @keyframes ritualFadeIn {
+            0% { opacity: 0; transform: translateY(10px); filter: blur(4px); }
+            100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+
+        .ornament-line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #c9a24b, transparent);
+            width: 100%;
+            position: relative;
+        }
+
+        .ornament-glyph {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #16111f;
+            padding: 0 8px;
+            color: #c9a24b;
+            font-size: 18px;
+        }
+
+        input:focus {
+            outline: none;
+            border-bottom-color: #ebc166 !important;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md selection:bg-primary-container selection:text-on-primary-container">
+<div class="star-field">
+<div class="nebula top-[-200px] left-[-200px]"></div>
+<div class="nebula bottom-[-300px] right-[-300px] opacity-50"></div>
+</div>
+<!-- Background Shader Animation -->
+
+<main class="min-h-screen flex items-center justify-center px-margin-mobile relative z-10">
+<div class="w-full max-w-[420px] ritual-fade flex flex-col items-center">
+<!-- Brand Anchor (Simplified for Login) -->
+<div class="mb-stack-lg text-center">
+<h1 class="font-display-md text-display-md text-primary tracking-[0.2em] mb-stack-sm">
+                    欢迎回来，旅人
+                </h1>
+<p class="font-tagline-italic text-tagline-italic italic text-on-surface-variant/80">
+                    星辰记得你的名字
+                </p>
+</div>
+<!-- Ornamental Divider -->
+<div class="ornament-line mb-stack-lg">
+<span class="material-symbols-outlined ornament-glyph">star_half</span>
+</div>
+<!-- Login Form Card -->
+<div class="w-full bg-surface-container-lowest/40 backdrop-blur-xl rounded-xl p-stack-lg border border-outline-variant/30 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+<form class="space-y-stack-lg">
+<!-- Email Input -->
+<div class="relative group">
+<label class="font-label-caps text-label-caps text-on-surface-variant group-focus-within:text-primary transition-colors block mb-2" for="email">
+                            邮箱
+                        </label>
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant py-3 text-on-surface font-tagline-italic placeholder:text-on-surface-variant/40 transition-all focus:ring-0 focus:border-primary" id="email" name="email" placeholder="your.soul@cosmos.com" type="email"/>
+</div>
+<!-- Password Input -->
+<div class="relative group">
+<div class="flex justify-between items-end mb-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant group-focus-within:text-primary transition-colors" for="password">
+                                密码
+                            </label>
+</div>
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant py-3 text-on-surface transition-all focus:ring-0 focus:border-primary" id="password" name="password" placeholder="••••••••" type="password"/>
+</div>
+<!-- Login Button (Wax Seal Style) -->
+<div class="pt-stack-md">
+<button class="w-full bg-primary-container text-on-primary-container font-label-caps text-label-caps py-4 rounded-full border border-primary/50 wax-seal-hover shimmer-border transition-all flex items-center justify-center gap-2 group" type="submit">
+<span>进入</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</form>
+<!-- Auxiliary Links -->
+<div class="mt-stack-lg flex flex-col items-center gap-4">
+<a class="text-on-surface-variant hover:text-primary font-label-caps text-[12px] tracking-wider transition-colors duration-300" href="#">
+                        忘记密码？
+                    </a>
+<div class="w-12 h-[1px] bg-outline-variant/30"></div>
+<a class="text-secondary hover:text-highlight-lavender font-body-md text-[14px] transition-colors duration-300 flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-[16px]">auto_fix_high</span>
+                        初次到访？开始身份仪式
+                    </a>
+</div>
+</div>
+<!-- Footer Quote/Micro-copy -->
+<div class="mt-stack-lg text-center opacity-40">
+<p class="font-tagline-italic text-[14px] italic text-on-surface-variant">
+                    "每一个重逢都是命运的精确刻画。"
+                </p>
+</div>
+</div>
+</main>
+<!-- Side Nav / Ambient Music Toggle (from JSON SideNavBar) -->
+<div class="fixed bottom-8 right-8 rounded-full p-4 bg-surface-container-lowest/50 backdrop-blur-xl border border-primary/40 shadow-[0_0_15px_rgba(235,193,102,0.3)] flex items-center justify-center w-14 h-14 z-50 cursor-pointer animate-pulse-slow active:rotate-12 transition-all group" title="氛围音乐">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">brightness_3</span>
+<!-- Tooltip for SideNavBar interaction -->
+<div class="absolute right-full mr-4 bg-surface-container px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+<p class="font-label-caps text-[10px] text-primary">开启沉浸体验</p>
+</div>
+</div>
+<!-- Hidden audio or scripts for micro-interactions -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const inputs = document.querySelectorAll('input');
+            inputs.forEach(input => {
+                input.addEventListener('focus', () => {
+                    // Slight expansion of the parent card bloom on focus
+                    document.querySelector('.shadow-\\[0_20px_50px_rgba\\(0\\,0\\,0\\,0\\.5\\)\\]').style.boxShadow = '0 30px 70px rgba(42, 27, 61, 0.6)';
+                });
+                input.addEventListener('blur', () => {
+                    document.querySelector('.shadow-\\[0_20px_50px_rgba\\(0\\,0\\,0\\,0\\.5\\)\\]').style.boxShadow = '0 20px 50px rgba(0,0,0,0.5)';
+                });
+            });
+
+            // Music toggle state simulation
+            const musicToggle = document.querySelector('.cursor-pointer.animate-pulse-slow');
+            let isPlaying = false;
+            musicToggle.addEventListener('click', () => {
+                isPlaying = !isPlaying;
+                const icon = musicToggle.querySelector('.material-symbols-outlined');
+                icon.textContent = isPlaying ? 'volume_up' : 'brightness_3';
+                if(isPlaying) {
+                    musicToggle.classList.remove('animate-pulse-slow');
+                    musicToggle.classList.add('rotate-[360deg]');
+                } else {
+                    musicToggle.classList.add('animate-pulse-slow');
+                    musicToggle.classList.remove('rotate-[360deg]');
+                }
+            });
+        });
+    </script>
+</body></html>

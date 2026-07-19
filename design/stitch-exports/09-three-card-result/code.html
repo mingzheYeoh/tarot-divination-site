@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Midnight Oracle - 三牌阵解读</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&amp;family=Inter:wght@300;400;600&amp;family=Playfair+Display:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#e8dff3",
+                    "secondary-fixed": "#efdbff",
+                    "on-tertiary-container": "#602a47",
+                    "on-secondary-fixed": "#2b0053",
+                    "secondary-container": "#5c2d90",
+                    "on-tertiary": "#521e3a",
+                    "tertiary-container": "#da92b4",
+                    "tertiary-fixed": "#ffd8e8",
+                    "highlight-lavender": "#E8DFFF",
+                    "primary-fixed": "#ffdf9e",
+                    "surface-container-low": "#1e1927",
+                    "error": "#ffb4ab",
+                    "surface-container-lowest": "#100c19",
+                    "error-container": "#93000a",
+                    "background-void": "#0B0714",
+                    "primary-fixed-dim": "#ebc166",
+                    "surface-dim": "#16111f",
+                    "primary-container": "#c9a24b",
+                    "primary": "#ebc166",
+                    "surface-container-high": "#2d2836",
+                    "on-primary-fixed": "#261a00",
+                    "on-tertiary-fixed": "#380725",
+                    "surface-bright": "#3c3746",
+                    "background-nebula": "#120C1F",
+                    "on-secondary-container": "#cea2ff",
+                    "on-primary": "#402d00",
+                    "surface-container-highest": "#383241",
+                    "secondary-fixed-dim": "#dab8ff",
+                    "card-back": "#3D0C29",
+                    "on-secondary": "#451078",
+                    "inverse-on-surface": "#332e3d",
+                    "on-primary-container": "#4f3900",
+                    "secondary": "#dab8ff",
+                    "surface-container": "#221d2c",
+                    "on-error-container": "#ffdad6",
+                    "surface-tint": "#ebc166",
+                    "outline": "#9a8f7e",
+                    "surface-variant": "#383241",
+                    "background": "#16111f",
+                    "tertiary": "#fcb0d4",
+                    "on-secondary-fixed-variant": "#5c2d90",
+                    "on-surface-variant": "#d1c5b2",
+                    "accent-magenta": "#7B4397",
+                    "on-primary-fixed-variant": "#5b4300",
+                    "on-surface": "#e8dff3",
+                    "tertiary-fixed-dim": "#fcb0d4",
+                    "surface": "#16111f",
+                    "glow-violet": "#2A1B3D",
+                    "on-tertiary-fixed-variant": "#6c3451",
+                    "inverse-primary": "#795902",
+                    "outline-variant": "#4e4637",
+                    "on-error": "#690005",
+                    "inverse-surface": "#e8dff3"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "gutter": "24px",
+                    "stack-lg": "32px",
+                    "margin-mobile": "16px",
+                    "section-padding": "80px",
+                    "stack-sm": "8px",
+                    "container-max": "1200px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Cinzel"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Cinzel"],
+                    "tagline-italic": ["Playfair Display"],
+                    "body-lg": ["Inter"],
+                    "display-lg-mobile": ["Cinzel"],
+                    "display-md": ["Cinzel"]
+            },
+            "fontSize": {
+                    "label-caps": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "tagline-italic": ["20px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.8", "fontWeight": "400"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "display-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0B0714;
+            color: #e8dff3;
+            overflow-x: hidden;
+        }
+
+        .parchment-glass {
+            background: linear-gradient(135deg, rgba(34, 29, 44, 0.7) 0%, rgba(16, 12, 25, 0.9) 100%);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(235, 193, 102, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .parchment-glass::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url("https://www.transparenttextures.com/patterns/p6.png");
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(1deg); }
+        }
+
+        .card-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .card-glow {
+            box-shadow: 0 0 30px rgba(232, 223, 255, 0.15);
+        }
+
+        .shimmer-btn:hover {
+            box-shadow: 0 0 20px rgba(235, 193, 102, 0.4);
+            background: linear-gradient(45deg, transparent, rgba(235, 193, 102, 0.1), transparent);
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .stagger-1 { animation-delay: 0.2s; }
+        .stagger-2 { animation-delay: 0.4s; }
+        .stagger-3 { animation-delay: 0.6s; }
+        .stagger-4 { animation-delay: 0.8s; }
+        .stagger-5 { animation-delay: 1.0s; }
+
+        .metallic-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, #c9a24b 50%, transparent 100%);
+            position: relative;
+        }
+        
+        .moon-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="font-body-md selection:bg-primary/30">
+<!-- Background Animation Layer -->
+
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-outline-variant/30 shadow-[0_4px_20px_rgba(42,27,61,0.5)]">
+<div class="flex justify-between items-center px-margin-mobile md:px-gutter max-w-container-max mx-auto h-20">
+<div class="font-display-md text-display-md text-primary tracking-widest cursor-pointer transition-transform active:scale-95">Midnight Oracle</div>
+<div class="hidden md:flex gap-stack-lg items-center">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">首页</a>
+<a class="font-label-caps text-label-caps text-primary border-b border-primary pb-1" href="#">抽牌占卜</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">牌意图鉴</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">关于</a>
+</div>
+<div class="flex gap-stack-md items-center text-primary">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary-fixed-dim transition-all duration-300">settings</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary-fixed-dim transition-all duration-300">account_circle</span>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-32 pb-section-padding px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+<!-- Cards Spread Section -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-end mb-20">
+<!-- Past Card -->
+<div class="flex flex-col items-center fade-in-up stagger-1">
+<span class="font-label-caps text-label-caps text-primary/70 mb-6 tracking-[0.2em]">过去</span>
+<div class="relative group">
+<div class="absolute -inset-4 bg-primary/5 rounded-xl blur-2xl group-hover:bg-primary/10 transition-all duration-700"></div>
+<img class="w-48 md:w-64 aspect-[2/3.5] object-cover rounded-lg border border-primary/40 card-float card-glow relative z-10" data-alt="A luxurious tarot card depicting The Hermit, featuring a wise figure holding a golden lantern in a snowy mountain landscape. The art style is etched gold foil on deep burgundy parchment, with mystical celestial symbols and intricate filigree borders. Cinematic lighting, soft ambient glow, sophisticated cosmic aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH4ka0K3DFmWhovgiLXO5TXlxUnb5BdjLCfcA7QzTZEFiS259Vgtz_5gozPuMBikiG5BRJWabXBWwWWO765p45MuLKZr92RyUaWyl7XZyhlSxdXwprZsx5x1mSbytLkqNg2s1dozh6uLYtYBpaCh0gmmvQQ55MmvFEP8H_9lzknaVr7VgcmR-RYQArs8B0VL9Rg9YCvfkYc8uj-9NwZgYUWHj5UTb0uTex2kAhPNYIPpfq6_BA-geD4mFovQczNcgtsZRvRlvjFA"/>
+</div>
+<h3 class="font-display-md text-display-md text-primary mt-8">IX 隐士</h3>
+</div>
+<!-- Present Card -->
+<div class="flex flex-col items-center fade-in-up stagger-2">
+<span class="font-label-caps text-label-caps text-primary/70 mb-6 tracking-[0.2em]">现在</span>
+<div class="relative group">
+<div class="absolute -inset-6 bg-highlight-lavender/10 rounded-xl blur-3xl group-hover:bg-highlight-lavender/20 transition-all duration-700"></div>
+<img class="w-56 md:w-72 aspect-[2/3.5] object-cover rounded-lg border border-primary/60 card-float card-glow relative z-10 [animation-delay:0.5s]" data-alt="A luxurious tarot card of The Wheel of Fortune, showing a grand celestial golden clockwork mechanism floating in a starry nebula void. The artwork is detailed with thin metallic gold lines on a dark velvet texture, featuring sphinx and alchemical symbols. Premium mystical quality, glowing highlights, intricate etching." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDejnmxqrX0r9qi5l7bEnqLSlJ3kunVDD4MnW0OZ6HkBkMWfLonTRYcwabt7Laif1ISL1qruId7BdAQ7koYSCgeqkmZYHqUxkd2Er-Ewor0KdS0YzsFETa8_sOYwsrlp0xlb-27vGqOQw-l6sxR8pPsVqlhc0ArndNXd3smkpSalbY3nWC9DowCvGl3S7QQUC-J_pvA4t9RfFIFa_qEN2gQhBPn-CXn76OTxCQqTkWsC4bfn1cQllTigdCBk8jjRLIOKRxe7qHlKQ"/>
+</div>
+<h3 class="font-display-md text-display-md text-primary mt-8">X 命运之轮</h3>
+</div>
+<!-- Future Card -->
+<div class="flex flex-col items-center fade-in-up stagger-3">
+<span class="font-label-caps text-label-caps text-primary/70 mb-6 tracking-[0.2em]">未来</span>
+<div class="relative group">
+<div class="absolute -inset-4 bg-primary/5 rounded-xl blur-2xl group-hover:bg-primary/10 transition-all duration-700"></div>
+<img class="w-48 md:w-64 aspect-[2/3.5] object-cover rounded-lg border border-primary/40 card-float card-glow relative z-10 [animation-delay:1s]" data-alt="A stunning tarot card representing The Sun, featuring a radiant golden celestial sun face surrounded by blooming sunflowers and a child on a white horse. The design is etched gold foil on a deep plum background with vintage occult details and shimmering metallic accents. High-end luxury illustration, glowing aura, divine atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7sALAKGYuhEg3ITLQMc5j__ISvIoyeUok0z0H5QlrihGw0tPpnDPGpmg75ny8s6O-SeNb_KpSfzw6Vh97sS77IuCGeSDFhlzXMbEcbq6XKhgZ4EDQE5m7_eZcTWBjoqpPTaiHcg3TabxKI1LFymifMKy2QuW6Se9iJeA-69BNqlePTdGK9uxKGpLRRSmBYRbSMpwfAv-L0rISqjxZ5HOJIv06kkTqrGE5BTAg5oqJooIrOOMe7UMP1zrAPXYcH43PX0RFgP9pvQ"/>
+</div>
+<h3 class="font-display-md text-display-md text-primary mt-8">XIX 太阳</h3>
+</div>
+</div>
+<!-- Ornamental Divider -->
+<div class="flex items-center justify-center gap-8 mb-20 fade-in-up stagger-4">
+<div class="metallic-divider flex-grow"></div>
+<div class="flex items-center gap-4 text-primary">
+<span class="material-symbols-outlined text-[18px] opacity-40">brightness_3</span>
+<span class="material-symbols-outlined text-[24px] opacity-70">brightness_2</span>
+<span class="material-symbols-outlined text-[32px] moon-icon">brightness_1</span>
+<span class="material-symbols-outlined text-[24px] opacity-70">brightness_2</span>
+<span class="material-symbols-outlined text-[18px] opacity-40">brightness_3</span>
+</div>
+<div class="metallic-divider flex-grow"></div>
+</div>
+<!-- Interpretation Panels -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-12 fade-in-up stagger-5">
+<!-- Past Detail -->
+<div class="parchment-glass p-8 rounded-xl flex flex-col gap-4 group">
+<div class="flex gap-2 mb-2">
+<span class="px-3 py-1 rounded-full border border-primary/30 text-[10px] font-label-caps text-primary tracking-wider bg-primary/5">内省</span>
+<span class="px-3 py-1 rounded-full border border-primary/30 text-[10px] font-label-caps text-primary tracking-wider bg-primary/5">积淀</span>
+</div>
+<p class="font-body-md text-on-surface-variant leading-relaxed">
+                    在过去的时间轴上，你经历了一段深刻的独处。这段时间并非荒废，而是为了看清内心的真实渴望，你在静谧中积累了前行的智慧。
+                </p>
+<div class="h-px w-0 group-hover:w-full bg-gradient-to-r from-primary/50 to-transparent transition-all duration-700"></div>
+</div>
+<!-- Present Detail -->
+<div class="parchment-glass p-8 rounded-xl flex flex-col gap-4 group border-primary/40 bg-primary/5">
+<div class="flex gap-2 mb-2">
+<span class="px-3 py-1 rounded-full border border-primary/30 text-[10px] font-label-caps text-primary tracking-wider bg-primary/10">转折</span>
+<span class="px-3 py-1 rounded-full border border-primary/30 text-[10px] font-label-caps text-primary tracking-wider bg-primary/10">机遇</span>
+</div>
+<p class="font-body-md text-on-surface-variant leading-relaxed italic">
+                    命运的车轮正在缓缓转动。目前你正处于一个关键的十字路口，看似偶然的事件实则是某种宇宙秩序的必然，请保持对变化的敏感度。
+                </p>
+<div class="h-px w-0 group-hover:w-full bg-gradient-to-r from-primary/50 to-transparent transition-all duration-700"></div>
+</div>
+<!-- Future Detail -->
+<div class="parchment-glass p-8 rounded-xl flex flex-col gap-4 group">
+<div class="flex gap-2 mb-2">
+<span class="px-3 py-1 rounded-full border border-primary/30 text-[10px] font-label-caps text-primary tracking-wider bg-primary/5">辉煌</span>
+<span class="px-3 py-1 rounded-full border border-primary/30 text-[10px] font-label-caps text-primary tracking-wider bg-primary/5">新生</span>
+</div>
+<p class="font-body-md text-on-surface-variant leading-relaxed">
+                    前方的道路将被璀璨的光芒照亮。所有的阴霾都将消散，你将迎来一段充满能量、成功与喜悦的时期，一切愿景都将触手可及。
+                </p>
+<div class="h-px w-0 group-hover:w-full bg-gradient-to-r from-primary/50 to-transparent transition-all duration-700"></div>
+</div>
+</div>
+<!-- Overall Guidance -->
+<div class="parchment-glass p-10 rounded-xl mb-16 fade-in-up stagger-5 border-primary/20">
+<h4 class="font-display-md text-display-md text-primary mb-6 flex items-center gap-4">
+<span class="material-symbols-outlined">auto_awesome</span>
+                整体指引
+            </h4>
+<div class="font-tagline-italic text-tagline-italic text-on-surface/90 italic leading-loose max-w-4xl">
+                “从隐士的深度思考到命运之轮的动态平衡，你正完成一次华丽的心灵蜕变。过去积蓄的智慧已转化为应对变局的舵轮，而太阳的出现预示着无论当下如何波动，最终的结局都指向光明与圆满。请带着这份笃定，迎接即将到来的黄金时代。”
+            </div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col sm:flex-row items-center justify-center gap-6 fade-in-up stagger-5">
+<button class="shimmer-btn px-10 py-4 rounded-full border border-primary bg-primary text-on-primary font-label-caps text-label-caps tracking-widest transition-all active:scale-95 group relative overflow-hidden">
+<span class="relative z-10">再抽一次</span>
+<div class="absolute inset-0 bg-white/10 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 skew-x-12"></div>
+</button>
+<button class="shimmer-btn px-10 py-4 rounded-full border border-primary/50 text-primary font-label-caps text-label-caps tracking-widest transition-all hover:bg-primary/5 active:scale-95">
+                保存此次占卜
+            </button>
+</div>
+</main>
+<!-- Side Floating Audio Control -->
+<div class="fixed bottom-8 right-8 rounded-full p-4 bg-surface-container-lowest/50 backdrop-blur-xl border border-primary/40 shadow-[0_0_15px_rgba(235,193,102,0.3)] flex items-center justify-center w-14 h-14 z-50 cursor-pointer animate-pulse-slow active:rotate-12 transition-all hover:scale-110 hover:shadow-[0_0_20px_rgba(235,193,102,0.5)]">
+<span class="material-symbols-outlined text-primary scale-110">brightness_3</span>
+</div>
+<!-- Footer -->
+<footer class="bg-background-void border-t border-outline-variant/20 w-full py-section-padding text-center">
+<div class="flex flex-col items-center gap-stack-lg max-w-container-max mx-auto px-margin-mobile">
+<div class="font-display-lg text-display-lg text-primary">Midnight Oracle</div>
+<div class="flex gap-stack-lg">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">隐私政策</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">服务条款</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">联系我们</a>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant opacity-60">
+                © 2024 Midnight Oracle. 愿星辰指引你的道路。
+            </p>
+</div>
+</footer>
+<script>
+        // Optional interaction logic for card hover shimmer or reveal effects
+        document.querySelectorAll('.parchment-glass').forEach(panel => {
+            panel.addEventListener('mousemove', (e) => {
+                const rect = panel.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                panel.style.setProperty('--mouse-x', `${x}px`);
+                panel.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body></html>

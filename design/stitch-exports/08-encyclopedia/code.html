@@ -1,0 +1,342 @@
+<!DOCTYPE html><html lang="zh-CN" class="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&amp;family=Inter:wght@300;400;500&amp;family=Playfair+Display:ital,wght@0,400;1,400&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">try{
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#e8dff3",
+                        "secondary-fixed": "#efdbff",
+                        "on-tertiary-container": "#602a47",
+                        "on-secondary-fixed": "#2b0053",
+                        "secondary-container": "#5c2d90",
+                        "on-tertiary": "#521e3a",
+                        "tertiary-container": "#da92b4",
+                        "tertiary-fixed": "#ffd8e8",
+                        "highlight-lavender": "#E8DFFF",
+                        "primary-fixed": "#ffdf9e",
+                        "surface-container-low": "#1e1927",
+                        "error": "#ffb4ab",
+                        "surface-container-lowest": "#100c19",
+                        "error-container": "#93000a",
+                        "background-void": "#0B0714",
+                        "primary-fixed-dim": "#ebc166",
+                        "surface-dim": "#16111f",
+                        "primary-container": "#c9a24b",
+                        "primary": "#ebc166",
+                        "surface-container-high": "#2d2836",
+                        "on-primary-fixed": "#261a00",
+                        "on-tertiary-fixed": "#380725",
+                        "surface-bright": "#3c3746",
+                        "background-nebula": "#120C1F",
+                        "on-secondary-container": "#cea2ff",
+                        "on-primary": "#402d00",
+                        "surface-container-highest": "#383241",
+                        "secondary-fixed-dim": "#dab8ff",
+                        "card-back": "#3D0C29",
+                        "on-secondary": "#451078",
+                        "inverse-on-surface": "#332e3d",
+                        "on-primary-container": "#4f3900",
+                        "secondary": "#dab8ff",
+                        "surface-container": "#221d2c",
+                        "on-error-container": "#ffdad6",
+                        "surface-tint": "#ebc166",
+                        "outline": "#9a8f7e",
+                        "surface-variant": "#383241",
+                        "background": "#16111f",
+                        "tertiary": "#fcb0d4",
+                        "on-secondary-fixed-variant": "#5c2d90",
+                        "on-surface": "#e8dff3",
+                        "tertiary-fixed-dim": "#fcb0d4",
+                        "surface": "#16111f",
+                        "glow-violet": "#2A1B3D",
+                        "on-tertiary-fixed-variant": "#6c3451",
+                        "inverse-primary": "#795902",
+                        "outline-variant": "#4e4637",
+                        "on-error": "#690005",
+                        "inverse-surface": "#e8dff3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "gutter": "24px",
+                        "stack-lg": "32px",
+                        "margin-mobile": "16px",
+                        "section-padding": "80px",
+                        "stack-sm": "8px",
+                        "container-max": "1200px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Cinzel"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Cinzel"],
+                        "tagline-italic": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "display-lg-mobile": ["Cinzel"],
+                        "display-md": ["Cinzel"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "tagline-italic": ["20px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.8", "fontWeight": "400"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "display-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    }catch(_e){}</script><meta charset="utf-8"></head><body class="font-body-md text-body-md selection:bg-primary/30 selection:text-primary">
+<div class="grain"></div>
+<!-- Top Nav Bar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-outline-variant/30 shadow-[0_4px_20px_rgba(42,27,61,0.5)]">
+<nav class="flex justify-between items-center px-margin-mobile md:px-gutter max-w-container-max mx-auto h-20">
+<div class="font-display-md text-display-md text-primary tracking-widest cursor-pointer transition-transform active:scale-95">
+                MIDNIGHT ORACLE
+            </div>
+<div class="hidden md:flex gap-stack-lg items-center">
+<a href="#" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300">首页</a>
+<a href="#" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300">抽牌占卜</a>
+<a href="#" class="font-label-caps text-label-caps text-primary border-b border-primary pb-1">牌意图鉴</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">关于</a>
+</div>
+<div class="flex gap-stack-md">
+<button class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">settings</button>
+<button class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">account_circle</button>
+</div>
+</nav>
+</header>
+<main class="pt-32 pb-section-padding min-h-screen relative overflow-hidden">
+<!-- Background Animation -->
+
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter relative z-10">
+<!-- Page Header & Search -->
+<div class="flex flex-col md:flex-row justify-between items-end gap-stack-lg mb-stack-lg">
+<div class="max-w-xl">
+<h1 class="font-display-lg text-display-lg text-primary mb-stack-sm">阿卡纳图鉴</h1>
+<p class="font-tagline-italic text-tagline-italic text-on-surface-variant opacity-80">在这里探索每一张塔罗牌蕴含的古老智慧与星辰启示。</p>
+</div>
+<!-- Search Bar -->
+<div class="w-full md:w-80 group">
+<div class="relative flex items-center border-b border-primary/40 focus-within:border-primary transition-all duration-500 pb-2">
+<span class="material-symbols-outlined text-primary/60 group-focus-within:text-primary mr-3">search</span>
+<input class="bg-transparent border-none focus:ring-0 w-full font-tagline-italic italic text-on-surface placeholder:text-outline/50 p-0" placeholder="搜索牌名..." type="text">
+</div>
+</div>
+</div>
+<!-- Filter Tabs -->
+<div class="flex flex-wrap gap-stack-md md:gap-stack-lg border-b border-outline-variant/20 mb-section-padding justify-center md:justify-start">
+<button class="px-4 py-3 font-label-caps text-label-caps text-primary border-b-2 border-primary transition-all">全部</button>
+<button class="px-4 py-3 font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all border-b-2 border-transparent hover:border-primary/40">大阿卡纳</button>
+<button class="px-4 py-3 font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all border-b-2 border-transparent hover:border-primary/40">权杖</button>
+<button class="px-4 py-3 font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all border-b-2 border-transparent hover:border-primary/40">圣杯</button>
+<button class="px-4 py-3 font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all border-b-2 border-transparent hover:border-primary/40">宝剑</button>
+<button class="px-4 py-3 font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all border-b-2 border-transparent hover:border-primary/40">星币</button>
+</div>
+<!-- Section Divider -->
+<div class="flex items-center justify-center gap-stack-md mb-stack-lg opacity-40">
+<div class="h-px w-24 bg-gradient-to-l from-primary to-transparent"></div>
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">auto_awesome</span>
+<div class="h-px w-24 bg-gradient-to-r from-primary to-transparent"></div>
+</div>
+<!-- Card Grid -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-12">
+<!-- Hovered/Flipped Card Example -->
+<div class="flex flex-col items-center group card-perspective">
+<div class="relative w-full aspect-[2/3.5] card-reveal card-inner cursor-pointer will-change-transform">
+<!-- Back -->
+<div class="absolute inset-0 bg-card-back rounded-lg border border-primary/40 flex items-center justify-center p-4 card-back-side shadow-[0_0_15px_rgba(42,27,61,0.8)] overflow-hidden"><div class="w-full h-full border-2 border-primary/30 rounded-md flex items-center justify-center relative overflow-hidden bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_70%)] from-primary/10">
+    <div class="absolute inset-0 opacity-30" style="background-image: url('data:image/svg+xml,%3Csvg width=" 40"="" height="40" viewbox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" %3e%3cpath="" d="M20 0L22.5 17.5L40 20L22.5 22.5L20 40L17.5 22.5L0 20L17.5 17.5L20 0Z" fill="%23ebc166" fill-opacity="0.4" %3e%3c="" svg%3e');="" background-size:="" 40px="" 40px;"=""></div>
+    <div class="relative z-10 flex flex-col items-center">
+        <span class="material-symbols-outlined text-primary text-6xl mb-2" style="font-variation-settings: 'FILL' 1, 'wght' 200;">star_rate</span>
+        <div class="w-12 h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+    </div>
+    <div class="absolute top-2 left-2 right-2 bottom-2 border border-primary/20 rounded-sm pointer-events-none"></div>
+</div></div>
+<!-- Front (Shown for this specific demo) -->
+<div class="absolute inset-0 bg-surface-container-highest rounded-lg border border-primary p-1 card-front shadow-[0_0_30px_rgba(235,193,102,0.3)] shimmer-border overflow-hidden">
+<div class="w-full h-full rounded-md overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="A detailed tarot card illustration of 'The Moon', featuring a large luminous moon in a starry indigo sky, two wolves howling by a dark reflective pond, and two stone towers in the distance. The style is etched gold and deep violet with fine celestial line art, creating a mystical and serene atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxOzE0DOlxFCjL8_zahkzbOA7K_sD4G-CTVwQNUEqZMC6OCaFTKQ7zvQmiDZRr2BcvD0KBqSYvTHGkZ6qhpuIR1zEk6xFIS_x2dfkFi7lUt49kRKdp7wnIlBvb4JU-B6aHQTDPAmHqigGkxehIFUhosYilZGqL2hMVMIn-aDH5DDzi2zCF7DxxhVeqiBPm5PAqzKW4rFz9cRjFIpx3_CXh5DjKVz1nnRTfWXyQH3VfOj1PoXgzkTvZV3XRLUpADICQuXj5YfVKGg" style="image-rendering: crisp-edges;">
+<div class="absolute inset-0 bg-gradient-to-t from-background-void/80 to-transparent"></div>
+<div class="absolute bottom-2 left-0 right-0 text-center">
+<span class="font-label-caps text-[10px] text-primary tracking-widest">XVIII</span>
+</div>
+</div>
+</div>
+</div>
+<p class="mt-4 font-label-caps text-primary tracking-widest text-center">月亮</p>
+<p class="text-[10px] text-on-surface-variant opacity-60 uppercase font-body-md tracking-tighter">THE MOON</p>
+</div>
+<!-- Card 2 -->
+<div class="flex flex-col items-center group card-perspective">
+<div class="relative w-full aspect-[2/3.5] card-inner cursor-pointer hover:scale-105 transition-transform duration-500 will-change-transform">
+<!-- Back -->
+<div class="absolute inset-0 bg-card-back rounded-lg border border-primary/20 group-hover:border-primary/60 transition-colors flex items-center justify-center p-4 card-back-side shadow-[0_0_15px_rgba(42,27,61,0.5)] overflow-hidden"><div class="w-full h-full border-2 border-primary/30 rounded-md flex items-center justify-center relative overflow-hidden bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_70%)] from-primary/10">
+    <div class="absolute inset-0 opacity-30" style="background-image: url('data:image/svg+xml,%3Csvg width=" 40"="" height="40" viewbox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" %3e%3cpath="" d="M20 0L22.5 17.5L40 20L22.5 22.5L20 40L17.5 22.5L0 20L17.5 17.5L20 0Z" fill="%23ebc166" fill-opacity="0.4" %3e%3c="" svg%3e');="" background-size:="" 40px="" 40px;"=""></div>
+    <div class="relative z-10 flex flex-col items-center">
+        <span class="material-symbols-outlined text-primary text-6xl mb-2" style="font-variation-settings: 'FILL' 1, 'wght' 200;">star_rate</span>
+        <div class="w-12 h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+    </div>
+    <div class="absolute top-2 left-2 right-2 bottom-2 border border-primary/20 rounded-sm pointer-events-none"></div>
+</div></div>
+<!-- Front (Hidden by default) -->
+<div class="absolute inset-0 bg-surface-container-highest rounded-lg border border-primary p-1 card-front shadow-[0_0_30px_rgba(235,193,102,0.3)]">
+<!-- Image will be revealed on manual hover state class if needed -->
+</div>
+</div>
+<p class="mt-4 font-label-caps text-on-surface-variant group-hover:text-primary transition-colors tracking-widest text-center">愚者</p>
+<p class="text-[10px] text-on-surface-variant opacity-40 uppercase font-body-md tracking-tighter">THE FOOL</p>
+</div>
+<!-- Card 3 -->
+<div class="flex flex-col items-center group card-perspective">
+<div class="relative w-full aspect-[2/3.5] card-inner cursor-pointer hover:scale-105 transition-transform duration-500 will-change-transform">
+<div class="absolute inset-0 bg-card-back rounded-lg border border-primary/20 group-hover:border-primary/60 transition-colors flex items-center justify-center p-4 card-back-side shadow-[0_0_15px_rgba(42,27,61,0.5)] overflow-hidden"><div class="w-full h-full border-2 border-primary/30 rounded-md flex items-center justify-center relative overflow-hidden bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_70%)] from-primary/10">
+    <div class="absolute inset-0 opacity-30" style="background-image: url('data:image/svg+xml,%3Csvg width=" 40"="" height="40" viewbox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" %3e%3cpath="" d="M20 0L22.5 17.5L40 20L22.5 22.5L20 40L17.5 22.5L0 20L17.5 17.5L20 0Z" fill="%23ebc166" fill-opacity="0.4" %3e%3c="" svg%3e');="" background-size:="" 40px="" 40px;"=""></div>
+    <div class="relative z-10 flex flex-col items-center">
+        <span class="material-symbols-outlined text-primary text-6xl mb-2" style="font-variation-settings: 'FILL' 1, 'wght' 200;">star_rate</span>
+        <div class="w-12 h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+    </div>
+    <div class="absolute top-2 left-2 right-2 bottom-2 border border-primary/20 rounded-sm pointer-events-none"></div>
+</div></div>
+</div>
+<p class="mt-4 font-label-caps text-on-surface-variant group-hover:text-primary transition-colors tracking-widest text-center">魔术师</p>
+<p class="text-[10px] text-on-surface-variant opacity-40 uppercase font-body-md tracking-tighter">THE MAGICIAN</p>
+</div>
+<!-- Card 4 -->
+<div class="flex flex-col items-center group card-perspective">
+<div class="relative w-full aspect-[2/3.5] card-inner cursor-pointer hover:scale-105 transition-transform duration-500 will-change-transform">
+<div class="absolute inset-0 bg-card-back rounded-lg border border-primary/20 group-hover:border-primary/60 transition-colors flex items-center justify-center p-4 card-back-side shadow-[0_0_15px_rgba(42,27,61,0.5)] overflow-hidden"><div class="w-full h-full border-2 border-primary/30 rounded-md flex items-center justify-center relative overflow-hidden bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_70%)] from-primary/10">
+    <div class="absolute inset-0 opacity-30" style="background-image: url('data:image/svg+xml,%3Csvg width=" 40"="" height="40" viewbox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" %3e%3cpath="" d="M20 0L22.5 17.5L40 20L22.5 22.5L20 40L17.5 22.5L0 20L17.5 17.5L20 0Z" fill="%23ebc166" fill-opacity="0.4" %3e%3c="" svg%3e');="" background-size:="" 40px="" 40px;"=""></div>
+    <div class="relative z-10 flex flex-col items-center">
+        <span class="material-symbols-outlined text-primary text-6xl mb-2" style="font-variation-settings: 'FILL' 1, 'wght' 200;">star_rate</span>
+        <div class="w-12 h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+    </div>
+    <div class="absolute top-2 left-2 right-2 bottom-2 border border-primary/20 rounded-sm pointer-events-none"></div>
+</div></div>
+</div>
+<p class="mt-4 font-label-caps text-on-surface-variant group-hover:text-primary transition-colors tracking-widest text-center">女祭司</p>
+<p class="text-[10px] text-on-surface-variant opacity-40 uppercase font-body-md tracking-tighter">THE HIGH PRIESTESS</p>
+</div>
+<!-- Card 5 -->
+<div class="flex flex-col items-center group card-perspective">
+<div class="relative w-full aspect-[2/3.5] card-inner cursor-pointer hover:scale-105 transition-transform duration-500 will-change-transform">
+<div class="absolute inset-0 bg-card-back rounded-lg border border-primary/20 group-hover:border-primary/60 transition-colors flex items-center justify-center p-4 card-back-side shadow-[0_0_15px_rgba(42,27,61,0.5)] overflow-hidden"><div class="w-full h-full border-2 border-primary/30 rounded-md flex items-center justify-center relative overflow-hidden bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_70%)] from-primary/10">
+    <div class="absolute inset-0 opacity-30" style="background-image: url('data:image/svg+xml,%3Csvg width=" 40"="" height="40" viewbox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" %3e%3cpath="" d="M20 0L22.5 17.5L40 20L22.5 22.5L20 40L17.5 22.5L0 20L17.5 17.5L20 0Z" fill="%23ebc166" fill-opacity="0.4" %3e%3c="" svg%3e');="" background-size:="" 40px="" 40px;"=""></div>
+    <div class="relative z-10 flex flex-col items-center">
+        <span class="material-symbols-outlined text-primary text-6xl mb-2" style="font-variation-settings: 'FILL' 1, 'wght' 200;">star_rate</span>
+        <div class="w-12 h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+    </div>
+    <div class="absolute top-2 left-2 right-2 bottom-2 border border-primary/20 rounded-sm pointer-events-none"></div>
+</div></div>
+</div>
+<p class="mt-4 font-label-caps text-on-surface-variant group-hover:text-primary transition-colors tracking-widest text-center">女皇</p>
+<p class="text-[10px] text-on-surface-variant opacity-40 uppercase font-body-md tracking-tighter">THE EMPRESS</p>
+</div>
+<!-- Card 6 -->
+<div class="flex flex-col items-center group card-perspective">
+<div class="relative w-full aspect-[2/3.5] card-inner cursor-pointer hover:scale-105 transition-transform duration-500 will-change-transform">
+<div class="absolute inset-0 bg-card-back rounded-lg border border-primary/20 group-hover:border-primary/60 transition-colors flex items-center justify-center p-4 card-back-side shadow-[0_0_15px_rgba(42,27,61,0.5)] overflow-hidden"><div class="w-full h-full border-2 border-primary/30 rounded-md flex items-center justify-center relative overflow-hidden bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_70%)] from-primary/10">
+    <div class="absolute inset-0 opacity-30" style="background-image: url('data:image/svg+xml,%3Csvg width=" 40"="" height="40" viewbox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" %3e%3cpath="" d="M20 0L22.5 17.5L40 20L22.5 22.5L20 40L17.5 22.5L0 20L17.5 17.5L20 0Z" fill="%23ebc166" fill-opacity="0.4" %3e%3c="" svg%3e');="" background-size:="" 40px="" 40px;"=""></div>
+    <div class="relative z-10 flex flex-col items-center">
+        <span class="material-symbols-outlined text-primary text-6xl mb-2" style="font-variation-settings: 'FILL' 1, 'wght' 200;">star_rate</span>
+        <div class="w-12 h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+    </div>
+    <div class="absolute top-2 left-2 right-2 bottom-2 border border-primary/20 rounded-sm pointer-events-none"></div>
+</div></div>
+</div>
+<p class="mt-4 font-label-caps text-on-surface-variant group-hover:text-primary transition-colors tracking-widest text-center">皇帝</p>
+<p class="text-[10px] text-on-surface-variant opacity-40 uppercase font-body-md tracking-tighter">THE EMPEROR</p>
+</div>
+<!-- Additional Placeholder Row (Repeating) -->
+<!-- Simple loops would be used in real dev, here I'll add a few more to flesh out the 6-col grid -->
+<div class="flex flex-col items-center group card-perspective hidden lg:flex">
+<div class="relative w-full aspect-[2/3.5] card-inner cursor-pointer hover:scale-105 transition-transform duration-500 will-change-transform">
+<div class="absolute inset-0 bg-card-back rounded-lg border border-primary/20 group-hover:border-primary/60 transition-colors flex items-center justify-center p-4 card-back-side overflow-hidden"><div class="w-full h-full border-2 border-primary/30 rounded-md flex items-center justify-center relative overflow-hidden bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_70%)] from-primary/10">
+    <div class="absolute inset-0 opacity-30" style="background-image: url('data:image/svg+xml,%3Csvg width=" 40"="" height="40" viewbox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" %3e%3cpath="" d="M20 0L22.5 17.5L40 20L22.5 22.5L20 40L17.5 22.5L0 20L17.5 17.5L20 0Z" fill="%23ebc166" fill-opacity="0.4" %3e%3c="" svg%3e');="" background-size:="" 40px="" 40px;"=""></div>
+    <div class="relative z-10 flex flex-col items-center">
+        <span class="material-symbols-outlined text-primary text-6xl mb-2" style="font-variation-settings: 'FILL' 1, 'wght' 200;">star_rate</span>
+        <div class="w-12 h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+    </div>
+    <div class="absolute top-2 left-2 right-2 bottom-2 border border-primary/20 rounded-sm pointer-events-none"></div>
+</div></div>
+</div>
+<p class="mt-4 font-label-caps text-on-surface-variant group-hover:text-primary transition-colors tracking-widest text-center">教皇</p>
+<p class="text-[10px] text-on-surface-variant opacity-40 uppercase tracking-tighter">THE HIEROPHANT</p>
+</div>
+<!-- ... more cards ... -->
+</div>
+<!-- Load More button -->
+<div class="mt-20 flex justify-center">
+<button class="group relative px-12 py-4 bg-transparent transition-all overflow-hidden">
+<div class="absolute inset-0 border border-primary/40 group-hover:border-primary transition-colors rounded-full"></div>
+<div class="absolute inset-0 bg-primary/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 rounded-full"></div>
+<span class="relative font-label-caps text-label-caps text-primary tracking-widest">探索更多</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Side Music Nav -->
+<div class="fixed bottom-8 right-8 flex items-center justify-center w-14 h-14 z-50 cursor-pointer bg-surface-container-lowest/50 backdrop-blur-xl border border-primary/40 rounded-full p-4 shadow-[0_0_15px_rgba(235,193,102,0.3)] group hover:scale-110 hover:shadow-[0_0_20px_rgba(235,193,102,0.5)] transition-all animate-[pulse_3s_ease-in-out_infinite]">
+<div class="absolute -top-16 right-0 bg-surface-container px-4 py-2 rounded-lg border border-primary/20 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+<p class="font-label-caps text-[10px] text-primary">氛围音乐</p>
+<p class="text-[8px] text-on-surface-variant">开启沉浸体验</p>
+</div>
+<span class="material-symbols-outlined text-primary text-2xl group-active:rotate-12 transition-transform">brightness_3</span>
+</div>
+<footer class="bg-background-void w-full py-section-padding border-t border-outline-variant/20">
+<div class="flex flex-col items-center gap-stack-lg max-w-container-max mx-auto text-center px-margin-mobile">
+<div class="font-display-lg text-display-lg text-primary tracking-[0.2em]">MIDNIGHT ORACLE</div>
+<div class="flex gap-stack-lg">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">隐私政策</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">服务条款</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">联系我们</a>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant opacity-60">
+                © 2024 Midnight Oracle. 愿星辰指引你的道路。
+            </p>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for cards flip simulation
+        document.querySelectorAll('.card-inner').forEach(card => {
+            card.addEventListener('click', function() {
+                this.closest('.group').classList.toggle('card-reveal');
+            });
+        });
+
+        // Add some "stardust" particles via JS for extra atmosphere
+        function createStars() {
+            const starCount = 30;
+            const container = document.body;
+            for(let i=0; i<starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'fixed bg-white rounded-full opacity-0 pointer-events-none z-0';
+                const size = Math.random() * 2 + 1;
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                star.style.top = Math.random() * 100 + 'vh';
+                star.style.left = Math.random() * 100 + 'vw';
+                star.style.boxShadow = `0 0 ${size*2}px #ebc166`;
+                star.style.animation = `twinkle ${Math.random()*5 + 3}s linear infinite`;
+                star.style.animationDelay = `${Math.random()*5}s`;
+                container.appendChild(star);
+            }
+        }
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes twinkle {
+                0%, 100% { opacity: 0; transform: scale(0.5); }
+                50% { opacity: 0.3; transform: scale(1.2); }
+            }
+        `;
+        document.head.appendChild(style);
+        createStars();
+    </script>
+
+</body></html>

@@ -11,7 +11,7 @@ function renderAtPath(path: string) {
 describe('routes', () => {
   it('renders the home page at /', () => {
     renderAtPath('/')
-    expect(screen.getByText(/首页正在筹备中/)).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: '夜语塔罗' })).toBeInTheDocument()
   })
 
   it('renders the draw page at /draw', () => {

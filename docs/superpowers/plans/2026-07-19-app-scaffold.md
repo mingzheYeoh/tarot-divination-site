@@ -880,6 +880,8 @@ git commit -m "Add RootLayout composing Nav, Footer, and AtmosphereLayer"
 ### Task 7: Routing skeleton with stub pages
 
 **Files:**
+- Create: `Tarot Divination Site/src/components/StubPage.tsx`
+- Test: `Tarot Divination Site/src/components/StubPage.test.tsx`
 - Create: `Tarot Divination Site/src/pages/HomePage.tsx` (stub — Task 10 replaces with real content)
 - Create: `Tarot Divination Site/src/pages/DrawPage.tsx`
 - Create: `Tarot Divination Site/src/pages/EncyclopediaPage.tsx`
@@ -894,102 +896,111 @@ git commit -m "Add RootLayout composing Nav, Footer, and AtmosphereLayer"
 
 **Interfaces:**
 - Consumes: `RootLayout` (Task 6)
-- Produces: `routes` (a `RouteObject[]` export from `src/routes.tsx`) consumed by `App.tsx` and by Task 10's update to `routes.test.tsx`. Each stub page default-exports a no-props component.
+- Produces: `StubPage` (default export, props `{ message: string }`), reused by all 7 stub pages instead of duplicating their wrapper markup. `routes` (a `RouteObject[]` export from `src/routes.tsx`) consumed by `App.tsx` and by Task 10's update to `routes.test.tsx`. Each stub page default-exports a no-props component.
 
-- [ ] **Step 1: Write the 6 non-home stub pages**
+- [ ] **Step 1: Write the failing test `src/components/StubPage.test.tsx`**
+
+```tsx
+import { render, screen } from '@testing-library/react'
+import { describe, it, expect } from 'vitest'
+import StubPage from './StubPage'
+
+describe('StubPage', () => {
+  it('renders the given message', () => {
+    render(<StubPage message="首页正在筹备中……" />)
+    expect(screen.getByText('首页正在筹备中……')).toBeInTheDocument()
+  })
+})
+```
+
+- [ ] **Step 2: Run the test and confirm it fails**
+
+Run: `npm test -- StubPage`
+Expected: FAILS — Vitest cannot resolve `./StubPage` (doesn't exist yet).
+
+- [ ] **Step 3: Write `src/components/StubPage.tsx`**
+
+```tsx
+export default function StubPage({ message }: { message: string }) {
+  return (
+    <div className="min-h-screen flex items-center justify-center px-margin-mobile pt-32 pb-section-padding">
+      <p className="font-tagline-italic text-tagline-italic text-on-surface-variant">{message}</p>
+    </div>
+  )
+}
+```
+
+- [ ] **Step 4: Run the test and confirm it passes**
+
+Run: `npm test -- StubPage`
+Expected: PASS (1 test passed)
+
+- [ ] **Step 5: Write the 7 stub pages as thin `StubPage` wrappers**
+
+`src/pages/HomePage.tsx` (stub for now — Task 10 replaces this file entirely):
+```tsx
+import StubPage from '../components/StubPage'
+
+export default function HomePage() {
+  return <StubPage message="首页正在筹备中……" />
+}
+```
 
 `src/pages/DrawPage.tsx`:
 ```tsx
+import StubPage from '../components/StubPage'
+
 export default function DrawPage() {
-  return (
-    <div className="min-h-screen flex items-center justify-center px-margin-mobile pt-32 pb-section-padding">
-      <p className="font-tagline-italic text-tagline-italic text-on-surface-variant">
-        抽牌占卜页面正在筹备中……
-      </p>
-    </div>
-  )
+  return <StubPage message="抽牌占卜页面正在筹备中……" />
 }
 ```
 
 `src/pages/EncyclopediaPage.tsx`:
 ```tsx
+import StubPage from '../components/StubPage'
+
 export default function EncyclopediaPage() {
-  return (
-    <div className="min-h-screen flex items-center justify-center px-margin-mobile pt-32 pb-section-padding">
-      <p className="font-tagline-italic text-tagline-italic text-on-surface-variant">
-        牌意图鉴页面正在筹备中……
-      </p>
-    </div>
-  )
+  return <StubPage message="牌意图鉴页面正在筹备中……" />
 }
 ```
 
 `src/pages/AboutPage.tsx`:
 ```tsx
+import StubPage from '../components/StubPage'
+
 export default function AboutPage() {
-  return (
-    <div className="min-h-screen flex items-center justify-center px-margin-mobile pt-32 pb-section-padding">
-      <p className="font-tagline-italic text-tagline-italic text-on-surface-variant">
-        关于页面正在筹备中……
-      </p>
-    </div>
-  )
+  return <StubPage message="关于页面正在筹备中……" />
 }
 ```
 
 `src/pages/LoginPage.tsx`:
 ```tsx
+import StubPage from '../components/StubPage'
+
 export default function LoginPage() {
-  return (
-    <div className="min-h-screen flex items-center justify-center px-margin-mobile pt-32 pb-section-padding">
-      <p className="font-tagline-italic text-tagline-italic text-on-surface-variant">
-        登录页面正在筹备中……
-      </p>
-    </div>
-  )
+  return <StubPage message="登录页面正在筹备中……" />
 }
 ```
 
 `src/pages/RegisterPage.tsx`:
 ```tsx
+import StubPage from '../components/StubPage'
+
 export default function RegisterPage() {
-  return (
-    <div className="min-h-screen flex items-center justify-center px-margin-mobile pt-32 pb-section-padding">
-      <p className="font-tagline-italic text-tagline-italic text-on-surface-variant">
-        注册页面正在筹备中……
-      </p>
-    </div>
-  )
+  return <StubPage message="注册页面正在筹备中……" />
 }
 ```
 
 `src/pages/ProfilePage.tsx`:
 ```tsx
+import StubPage from '../components/StubPage'
+
 export default function ProfilePage() {
-  return (
-    <div className="min-h-screen flex items-center justify-center px-margin-mobile pt-32 pb-section-padding">
-      <p className="font-tagline-italic text-tagline-italic text-on-surface-variant">
-        占卜师主页正在筹备中……
-      </p>
-    </div>
-  )
+  return <StubPage message="占卜师主页正在筹备中……" />
 }
 ```
 
-`src/pages/HomePage.tsx` (stub for now):
-```tsx
-export default function HomePage() {
-  return (
-    <div className="min-h-screen flex items-center justify-center px-margin-mobile pt-32 pb-section-padding">
-      <p className="font-tagline-italic text-tagline-italic text-on-surface-variant">
-        首页正在筹备中……
-      </p>
-    </div>
-  )
-}
-```
-
-- [ ] **Step 2: Write the failing test `src/routes.test.tsx`**
+- [ ] **Step 6: Write the failing test `src/routes.test.tsx`**
 
 ```tsx
 import { render, screen } from '@testing-library/react'
@@ -1045,12 +1056,12 @@ describe('routes', () => {
 })
 ```
 
-- [ ] **Step 3: Run the test and confirm it fails**
+- [ ] **Step 7: Run the test and confirm it fails**
 
 Run: `npm test -- routes`
 Expected: FAILS — Vitest cannot resolve `./routes` (`src/routes.tsx` doesn't exist yet).
 
-- [ ] **Step 4: Write `src/routes.tsx`**
+- [ ] **Step 8: Write `src/routes.tsx`**
 
 ```tsx
 import type { RouteObject } from 'react-router-dom'
@@ -1080,7 +1091,7 @@ export const routes: RouteObject[] = [
 ]
 ```
 
-- [ ] **Step 5: Update `src/App.tsx`**
+- [ ] **Step 9: Update `src/App.tsx`**
 
 ```tsx
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
@@ -1093,24 +1104,24 @@ export default function App() {
 }
 ```
 
-- [ ] **Step 6: Delete the now-obsolete `src/App.test.tsx`**
+- [ ] **Step 10: Delete the now-obsolete `src/App.test.tsx`**
 
 Its assertion (`Midnight Oracle` placeholder text) no longer applies now that `App` renders full routing — routing behavior is covered by `src/routes.test.tsx` instead.
 
-- [ ] **Step 7: Run the test and confirm it passes**
+- [ ] **Step 11: Run the test and confirm it passes**
 
 Run: `npm test -- routes`
 Expected: PASS (8 tests passed)
 
-- [ ] **Step 8: Run the full test suite to confirm nothing else broke**
+- [ ] **Step 12: Run the full test suite to confirm nothing else broke**
 
 Run: `npm test`
 Expected: all tests pass (no leftover reference to the deleted `App.test.tsx`).
 
-- [ ] **Step 9: Commit**
+- [ ] **Step 13: Commit**
 
 ```bash
-git add src/pages src/routes.tsx src/routes.test.tsx src/App.tsx
+git add src/components/StubPage.tsx src/components/StubPage.test.tsx src/pages src/routes.tsx src/routes.test.tsx src/App.tsx
 git rm src/App.test.tsx
 git commit -m "Add routing skeleton with stub pages for every site route"
 ```

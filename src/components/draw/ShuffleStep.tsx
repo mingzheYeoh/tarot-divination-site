@@ -15,8 +15,18 @@ export default function ShuffleStep() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-margin-mobile pt-32 pb-section-padding">
       <div className="relative">
-        <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] pointer-events-none" viewBox="0 0 100 100">
-          <circle cx="50" cy="50" fill="none" r="45" stroke="rgba(235, 193, 102, 0.1)" strokeWidth="0.5" />
+        <svg
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] pointer-events-none"
+          viewBox="0 0 100 100"
+        >
+          <circle
+            cx="50"
+            cy="50"
+            fill="none"
+            r="45"
+            stroke="rgba(235, 193, 102, 0.1)"
+            strokeWidth="0.5"
+          />
           <circle
             className="progress-ring-circle"
             cx="50"
@@ -31,7 +41,9 @@ export default function ShuffleStep() {
         <div className="relative z-20 w-48 h-72 rounded-lg bg-card-back border-2 border-primary shadow-2xl flex items-center justify-center overflow-hidden">
           <div className="absolute inset-2 border border-primary/40 rounded-md" />
           <div className="flex flex-col items-center">
-            <span className="material-symbols-outlined text-5xl text-primary mb-2">brightness_high</span>
+            <span className="material-symbols-outlined text-5xl text-primary mb-2">
+              brightness_high
+            </span>
             <span className="font-label-caps text-label-caps text-primary/80">ORACLE</span>
           </div>
         </div>

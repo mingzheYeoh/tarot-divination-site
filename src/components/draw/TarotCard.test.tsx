@@ -30,9 +30,7 @@ describe('TarotCard', () => {
 
   it('calls onClick when clicked, and exposes ariaLabel as the accessible name', async () => {
     let clicked = false
-    render(
-      <TarotCard flipped={false} onClick={() => (clicked = true)} ariaLabel="点击翻牌" />,
-    )
+    render(<TarotCard flipped={false} onClick={() => (clicked = true)} ariaLabel="点击翻牌" />)
     const button = screen.getByRole('button', { name: '点击翻牌' })
     await userEvent.click(button)
     expect(clicked).toBe(true)

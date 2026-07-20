@@ -12,8 +12,10 @@ export default function RevealStep() {
         <TarotCard
           card={drawnCard}
           flipped={isFlipped}
-          onClick={isFlipped ? undefined : () => setIsFlipped(true)}
-          ariaLabel="点击翻牌"
+          onClick={() => setIsFlipped(true)}
+          ariaLabel={
+            isFlipped && drawnCard ? `${drawnCard.nameLocal} · ${drawnCard.name}` : '点击翻牌'
+          }
         />
       </div>
 

@@ -45,9 +45,49 @@ describe('RevealStep', () => {
     const cardButton = screen.getByRole('button', { name: '点击翻牌' })
     await userEvent.click(cardButton)
 
+    // The pre-flip "点击翻牌" (click to flip) label is now stale once the
+    // card has actually been revealed — it should no longer resolve to a
+    // button, proving the accessible name updated to reflect the revealed
+    // card instead of remaining frozen on the pre-flip instruction text.
+    expect(screen.queryByRole('button', { name: '点击翻牌' })).not.toBeInTheDocument()
+
     const revealButton = await screen.findByRole('button', { name: /查看解读/ })
     await userEvent.click(revealButton)
 
     expect(screen.getByText('step: result')).toBeInTheDocument()
+  })
+
+  it('keeps the card as an interactive button (not a bare div) after it is flipped', async () => {
+    // Root-cause regression test: TarotCard swaps its root host element
+    // between <button> (onClick present) and a bare <div> (onClick absent).
+    // If RevealStep ever again clears onClick once flipped, TarotCard would
+    // remount as a plain, non-interactive element, and the card-inner flip
+    // transition would silently fail to animate. Asserting the card is still
+    // reachable via getByRole('button', ...) post-flip proves onClick stayed
+    // attached, i.e. TarotCard's root element type never changed across the
+    // flip.
+    let select: () => void = () => {}
+    render(
+      <ReadingSessionProvider>
+        <StepSetup onReady={(fn) => (select = fn)} />
+      </ReadingSessionProvider>,
+    )
+    select()
+    await screen.findByText('step: revealing')
+
+    const cardButton = screen.getByRole('button', { name: '点击翻牌' })
+    await userEvent.click(cardButton)
+
+    // Still a real <button> in the accessibility tree post-flip. The
+    // post-flip ariaLabel format is `${nameLocal} · ${name}`, so matching on
+    // the "·" separator identifies the card button structurally (without
+    // knowing which specific card was drawn) and disambiguates it from the
+    // separate "查看解读" button that also appears once flipped. Using
+    // getByRole (which throws if not found) rather than queryByRole is the
+    // point: it proves TarotCard's root element is still a <button>, not a
+    // bare, non-interactive <div>.
+    const flippedCardButton = screen.getByRole('button', { name: /·/ })
+    expect(flippedCardButton).toBeInTheDocument()
+    expect(flippedCardButton).not.toHaveAccessibleName('点击翻牌')
   })
 })

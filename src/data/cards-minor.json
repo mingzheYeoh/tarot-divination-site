@@ -1,0 +1,506 @@
+[
+  {
+    "id": "wands_01",
+    "name": "Ace of Wands",
+    "number": 1,
+    "arcana": "minor",
+    "suit": "wands",
+    "element": "fire",
+    "image": "/assets/tarot/wands01.jpg"
+  },
+  {
+    "id": "wands_02",
+    "name": "Two of Wands",
+    "number": 2,
+    "arcana": "minor",
+    "suit": "wands",
+    "element": "fire",
+    "image": "/assets/tarot/wands02.jpg"
+  },
+  {
+    "id": "wands_03",
+    "name": "Three of Wands",
+    "number": 3,
+    "arcana": "minor",
+    "suit": "wands",
+    "element": "fire",
+    "image": "/assets/tarot/wands03.jpg"
+  },
+  {
+    "id": "wands_04",
+    "name": "Four of Wands",
+    "number": 4,
+    "arcana": "minor",
+    "suit": "wands",
+    "element": "fire",
+    "image": "/assets/tarot/wands04.jpg"
+  },
+  {
+    "id": "wands_05",
+    "name": "Five of Wands",
+    "number": 5,
+    "arcana": "minor",
+    "suit": "wands",
+    "element": "fire",
+    "image": "/assets/tarot/wands05.jpg"
+  },
+  {
+    "id": "wands_06",
+    "name": "Six of Wands",
+    "number": 6,
+    "arcana": "minor",
+    "suit": "wands",
+    "element": "fire",
+    "image": "/assets/tarot/wands06.jpg"
+  },
+  {
+    "id": "wands_07",
+    "name": "Seven of Wands",
+    "number": 7,
+    "arcana": "minor",
+    "suit": "wands",
+    "element": "fire",
+    "image": "/assets/tarot/wands07.jpg"
+  },
+  {
+    "id": "wands_08",
+    "name": "Eight of Wands",
+    "number": 8,
+    "arcana": "minor",
+    "suit": "wands",
+    "element": "fire",
+    "image": "/assets/tarot/wands08.jpg"
+  },
+  {
+    "id": "wands_09",
+    "name": "Nine of Wands",
+    "number": 9,
+    "arcana": "minor",
+    "suit": "wands",
+    "element": "fire",
+    "image": "/assets/tarot/wands09.jpg"
+  },
+  {
+    "id": "wands_10",
+    "name": "Ten of Wands",
+    "number": 10,
+    "arcana": "minor",
+    "suit": "wands",
+    "element": "fire",
+    "image": "/assets/tarot/wands10.jpg"
+  },
+  {
+    "id": "wands_11",
+    "name": "Page of Wands",
+    "number": 11,
+    "arcana": "minor",
+    "suit": "wands",
+    "element": "fire",
+    "image": "/assets/tarot/wands11.jpg"
+  },
+  {
+    "id": "wands_12",
+    "name": "Knight of Wands",
+    "number": 12,
+    "arcana": "minor",
+    "suit": "wands",
+    "element": "fire",
+    "image": "/assets/tarot/wands12.jpg"
+  },
+  {
+    "id": "wands_13",
+    "name": "Queen of Wands",
+    "number": 13,
+    "arcana": "minor",
+    "suit": "wands",
+    "element": "fire",
+    "image": "/assets/tarot/wands13.jpg"
+  },
+  {
+    "id": "wands_14",
+    "name": "King of Wands",
+    "number": 14,
+    "arcana": "minor",
+    "suit": "wands",
+    "element": "fire",
+    "image": "/assets/tarot/wands14.jpg"
+  },
+  {
+    "id": "cups_01",
+    "name": "Ace of Cups",
+    "number": 1,
+    "arcana": "minor",
+    "suit": "cups",
+    "element": "water",
+    "image": "/assets/tarot/cups01.jpg"
+  },
+  {
+    "id": "cups_02",
+    "name": "Two of Cups",
+    "number": 2,
+    "arcana": "minor",
+    "suit": "cups",
+    "element": "water",
+    "image": "/assets/tarot/cups02.jpg"
+  },
+  {
+    "id": "cups_03",
+    "name": "Three of Cups",
+    "number": 3,
+    "arcana": "minor",
+    "suit": "cups",
+    "element": "water",
+    "image": "/assets/tarot/cups03.jpg"
+  },
+  {
+    "id": "cups_04",
+    "name": "Four of Cups",
+    "number": 4,
+    "arcana": "minor",
+    "suit": "cups",
+    "element": "water",
+    "image": "/assets/tarot/cups04.jpg"
+  },
+  {
+    "id": "cups_05",
+    "name": "Five of Cups",
+    "number": 5,
+    "arcana": "minor",
+    "suit": "cups",
+    "element": "water",
+    "image": "/assets/tarot/cups05.jpg"
+  },
+  {
+    "id": "cups_06",
+    "name": "Six of Cups",
+    "number": 6,
+    "arcana": "minor",
+    "suit": "cups",
+    "element": "water",
+    "image": "/assets/tarot/cups06.jpg"
+  },
+  {
+    "id": "cups_07",
+    "name": "Seven of Cups",
+    "number": 7,
+    "arcana": "minor",
+    "suit": "cups",
+    "element": "water",
+    "image": "/assets/tarot/cups07.jpg"
+  },
+  {
+    "id": "cups_08",
+    "name": "Eight of Cups",
+    "number": 8,
+    "arcana": "minor",
+    "suit": "cups",
+    "element": "water",
+    "image": "/assets/tarot/cups08.jpg"
+  },
+  {
+    "id": "cups_09",
+    "name": "Nine of Cups",
+    "number": 9,
+    "arcana": "minor",
+    "suit": "cups",
+    "element": "water",
+    "image": "/assets/tarot/cups09.jpg"
+  },
+  {
+    "id": "cups_10",
+    "name": "Ten of Cups",
+    "number": 10,
+    "arcana": "minor",
+    "suit": "cups",
+    "element": "water",
+    "image": "/assets/tarot/cups10.jpg"
+  },
+  {
+    "id": "cups_11",
+    "name": "Page of Cups",
+    "number": 11,
+    "arcana": "minor",
+    "suit": "cups",
+    "element": "water",
+    "image": "/assets/tarot/cups11.jpg"
+  },
+  {
+    "id": "cups_12",
+    "name": "Knight of Cups",
+    "number": 12,
+    "arcana": "minor",
+    "suit": "cups",
+    "element": "water",
+    "image": "/assets/tarot/cups12.jpg"
+  },
+  {
+    "id": "cups_13",
+    "name": "Queen of Cups",
+    "number": 13,
+    "arcana": "minor",
+    "suit": "cups",
+    "element": "water",
+    "image": "/assets/tarot/cups13.jpg"
+  },
+  {
+    "id": "cups_14",
+    "name": "King of Cups",
+    "number": 14,
+    "arcana": "minor",
+    "suit": "cups",
+    "element": "water",
+    "image": "/assets/tarot/cups14.jpg"
+  },
+  {
+    "id": "swords_01",
+    "name": "Ace of Swords",
+    "number": 1,
+    "arcana": "minor",
+    "suit": "swords",
+    "element": "air",
+    "image": "/assets/tarot/swords01.jpg"
+  },
+  {
+    "id": "swords_02",
+    "name": "Two of Swords",
+    "number": 2,
+    "arcana": "minor",
+    "suit": "swords",
+    "element": "air",
+    "image": "/assets/tarot/swords02.jpg"
+  },
+  {
+    "id": "swords_03",
+    "name": "Three of Swords",
+    "number": 3,
+    "arcana": "minor",
+    "suit": "swords",
+    "element": "air",
+    "image": "/assets/tarot/swords03.jpg"
+  },
+  {
+    "id": "swords_04",
+    "name": "Four of Swords",
+    "number": 4,
+    "arcana": "minor",
+    "suit": "swords",
+    "element": "air",
+    "image": "/assets/tarot/swords04.jpg"
+  },
+  {
+    "id": "swords_05",
+    "name": "Five of Swords",
+    "number": 5,
+    "arcana": "minor",
+    "suit": "swords",
+    "element": "air",
+    "image": "/assets/tarot/swords05.jpg"
+  },
+  {
+    "id": "swords_06",
+    "name": "Six of Swords",
+    "number": 6,
+    "arcana": "minor",
+    "suit": "swords",
+    "element": "air",
+    "image": "/assets/tarot/swords06.jpg"
+  },
+  {
+    "id": "swords_07",
+    "name": "Seven of Swords",
+    "number": 7,
+    "arcana": "minor",
+    "suit": "swords",
+    "element": "air",
+    "image": "/assets/tarot/swords07.jpg"
+  },
+  {
+    "id": "swords_08",
+    "name": "Eight of Swords",
+    "number": 8,
+    "arcana": "minor",
+    "suit": "swords",
+    "element": "air",
+    "image": "/assets/tarot/swords08.jpg"
+  },
+  {
+    "id": "swords_09",
+    "name": "Nine of Swords",
+    "number": 9,
+    "arcana": "minor",
+    "suit": "swords",
+    "element": "air",
+    "image": "/assets/tarot/swords09.jpg"
+  },
+  {
+    "id": "swords_10",
+    "name": "Ten of Swords",
+    "number": 10,
+    "arcana": "minor",
+    "suit": "swords",
+    "element": "air",
+    "image": "/assets/tarot/swords10.jpg"
+  },
+  {
+    "id": "swords_11",
+    "name": "Page of Swords",
+    "number": 11,
+    "arcana": "minor",
+    "suit": "swords",
+    "element": "air",
+    "image": "/assets/tarot/swords11.jpg"
+  },
+  {
+    "id": "swords_12",
+    "name": "Knight of Swords",
+    "number": 12,
+    "arcana": "minor",
+    "suit": "swords",
+    "element": "air",
+    "image": "/assets/tarot/swords12.jpg"
+  },
+  {
+    "id": "swords_13",
+    "name": "Queen of Swords",
+    "number": 13,
+    "arcana": "minor",
+    "suit": "swords",
+    "element": "air",
+    "image": "/assets/tarot/swords13.jpg"
+  },
+  {
+    "id": "swords_14",
+    "name": "King of Swords",
+    "number": 14,
+    "arcana": "minor",
+    "suit": "swords",
+    "element": "air",
+    "image": "/assets/tarot/swords14.jpg"
+  },
+  {
+    "id": "pentacles_01",
+    "name": "Ace of Pentacles",
+    "number": 1,
+    "arcana": "minor",
+    "suit": "pentacles",
+    "element": "earth",
+    "image": "/assets/tarot/pentacles01.jpg"
+  },
+  {
+    "id": "pentacles_02",
+    "name": "Two of Pentacles",
+    "number": 2,
+    "arcana": "minor",
+    "suit": "pentacles",
+    "element": "earth",
+    "image": "/assets/tarot/pentacles02.jpg"
+  },
+  {
+    "id": "pentacles_03",
+    "name": "Three of Pentacles",
+    "number": 3,
+    "arcana": "minor",
+    "suit": "pentacles",
+    "element": "earth",
+    "image": "/assets/tarot/pentacles03.jpg"
+  },
+  {
+    "id": "pentacles_04",
+    "name": "Four of Pentacles",
+    "number": 4,
+    "arcana": "minor",
+    "suit": "pentacles",
+    "element": "earth",
+    "image": "/assets/tarot/pentacles04.jpg"
+  },
+  {
+    "id": "pentacles_05",
+    "name": "Five of Pentacles",
+    "number": 5,
+    "arcana": "minor",
+    "suit": "pentacles",
+    "element": "earth",
+    "image": "/assets/tarot/pentacles05.jpg"
+  },
+  {
+    "id": "pentacles_06",
+    "name": "Six of Pentacles",
+    "number": 6,
+    "arcana": "minor",
+    "suit": "pentacles",
+    "element": "earth",
+    "image": "/assets/tarot/pentacles06.jpg"
+  },
+  {
+    "id": "pentacles_07",
+    "name": "Seven of Pentacles",
+    "number": 7,
+    "arcana": "minor",
+    "suit": "pentacles",
+    "element": "earth",
+    "image": "/assets/tarot/pentacles07.jpg"
+  },
+  {
+    "id": "pentacles_08",
+    "name": "Eight of Pentacles",
+    "number": 8,
+    "arcana": "minor",
+    "suit": "pentacles",
+    "element": "earth",
+    "image": "/assets/tarot/pentacles08.jpg"
+  },
+  {
+    "id": "pentacles_09",
+    "name": "Nine of Pentacles",
+    "number": 9,
+    "arcana": "minor",
+    "suit": "pentacles",
+    "element": "earth",
+    "image": "/assets/tarot/pentacles09.jpg"
+  },
+  {
+    "id": "pentacles_10",
+    "name": "Ten of Pentacles",
+    "number": 10,
+    "arcana": "minor",
+    "suit": "pentacles",
+    "element": "earth",
+    "image": "/assets/tarot/pentacles10.jpg"
+  },
+  {
+    "id": "pentacles_11",
+    "name": "Page of Pentacles",
+    "number": 11,
+    "arcana": "minor",
+    "suit": "pentacles",
+    "element": "earth",
+    "image": "/assets/tarot/pentacles11.jpg"
+  },
+  {
+    "id": "pentacles_12",
+    "name": "Knight of Pentacles",
+    "number": 12,
+    "arcana": "minor",
+    "suit": "pentacles",
+    "element": "earth",
+    "image": "/assets/tarot/pentacles12.jpg"
+  },
+  {
+    "id": "pentacles_13",
+    "name": "Queen of Pentacles",
+    "number": 13,
+    "arcana": "minor",
+    "suit": "pentacles",
+    "element": "earth",
+    "image": "/assets/tarot/pentacles13.jpg"
+  },
+  {
+    "id": "pentacles_14",
+    "name": "King of Pentacles",
+    "number": 14,
+    "arcana": "minor",
+    "suit": "pentacles",
+    "element": "earth",
+    "image": "/assets/tarot/pentacles14.jpg"
+  }
+]

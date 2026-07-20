@@ -16,7 +16,7 @@ describe('routes', () => {
 
   it('renders the draw page at /draw', () => {
     renderAtPath('/draw')
-    expect(screen.getByText(/抽牌占卜页面正在筹备中/)).toBeInTheDocument()
+    expect(screen.getByText('静下心来，默念你的问题')).toBeInTheDocument()
   })
 
   it('renders the encyclopedia page at /encyclopedia', () => {

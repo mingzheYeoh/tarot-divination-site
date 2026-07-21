@@ -1,7 +1,15 @@
 import { createContext, useContext, useState, type ReactNode } from 'react'
 import { drawCard, type DrawnCard, type CardStructure, type CardContent } from '../lib/drawCard'
-import cardsStructure from '../data/cards-major.json'
-import cardsContent from '../data/cards-major.zh.json'
+import majorStructure from '../data/cards-major.json'
+import majorContent from '../data/cards-major.zh.json'
+import minorStructure from '../data/cards-minor.json'
+import minorContent from '../data/cards-minor.zh.json'
+
+const allStructure = [...majorStructure, ...minorStructure] as unknown as CardStructure[]
+const allContent = {
+  ...majorContent,
+  ...minorContent,
+} as unknown as Record<string, CardContent>
 
 type SpreadType = 'single' | 'three-card' | 'celtic-cross' | null
 
@@ -49,10 +57,7 @@ export function ReadingSessionProvider({ children }: { children: ReactNode }) {
     beginShuffle: () => setStep('shuffling'),
     finishShuffle: () => setStep('selecting'),
     selectCard: () => {
-      const card = drawCard(
-        cardsStructure as unknown as CardStructure[],
-        cardsContent as unknown as Record<string, CardContent>,
-      )
+      const card = drawCard(allStructure, allContent)
       setDrawnCard(card)
       setStep('revealing')
     },

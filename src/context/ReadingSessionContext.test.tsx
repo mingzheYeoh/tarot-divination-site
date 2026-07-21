@@ -1,5 +1,5 @@
 import { render, screen, act } from '@testing-library/react'
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { ReadingSessionProvider, useReadingSession } from './ReadingSessionContext'
 
 function Probe() {
@@ -49,7 +49,9 @@ describe('ReadingSessionContext', () => {
 
     act(() => screen.getByText('selectCard').click())
     expect(screen.getByText('step: revealing')).toBeInTheDocument()
-    expect(screen.getByText(/drawnCard: major_\d{2}/)).toBeInTheDocument()
+    expect(
+      screen.getByText(/drawnCard: (major|wands|cups|swords|pentacles)_\d{2}/),
+    ).toBeInTheDocument()
 
     act(() => screen.getByText('finishReveal').click())
     expect(screen.getByText('step: result')).toBeInTheDocument()
@@ -86,5 +88,23 @@ describe('ReadingSessionContext', () => {
       </ReadingSessionProvider>,
     )
     expect(screen.getByText('activeSpread: none')).toBeInTheDocument()
+  })
+
+  it('can draw a Minor Arcana card from the combined 78-card pool', () => {
+    const randomSpy = vi.spyOn(Math, 'random')
+    randomSpy.mockReturnValueOnce(22.5 / 78) // index 22 = first Minor Arcana entry (wands_01)
+    randomSpy.mockReturnValueOnce(0.1) // upright
+
+    render(
+      <ReadingSessionProvider>
+        <Probe />
+      </ReadingSessionProvider>,
+    )
+    act(() => screen.getByText('beginShuffle').click())
+    act(() => screen.getByText('finishShuffle').click())
+    act(() => screen.getByText('selectCard').click())
+    expect(screen.getByText('drawnCard: wands_01')).toBeInTheDocument()
+
+    randomSpy.mockRestore()
   })
 })

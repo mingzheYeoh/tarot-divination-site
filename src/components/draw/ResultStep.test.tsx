@@ -1,7 +1,7 @@
 import { render, screen, act } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import userEvent from '@testing-library/user-event'
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { ReadingSessionProvider, useReadingSession } from '../../context/ReadingSessionContext'
 import ResultStep from './ResultStep'
 
@@ -68,5 +68,23 @@ describe('ResultStep', () => {
     renderAtResult('')
     await userEvent.click(screen.getByRole('button', { name: /再抽一张/ }))
     expect(screen.queryByText('给你的建议')).not.toBeInTheDocument()
+  })
+
+  it('shows a suit-based caption for a Minor Arcana result', () => {
+    const randomSpy = vi.spyOn(Math, 'random')
+    randomSpy.mockReturnValueOnce(22.5 / 78) // index 22 = wands_01 (Ace of Wands)
+    randomSpy.mockReturnValueOnce(0.1) // upright
+    renderAtResult('')
+    expect(screen.getByText('WANDS · ACE')).toBeInTheDocument()
+    randomSpy.mockRestore()
+  })
+
+  it('still shows the Roman-numeral caption for a Major Arcana result', () => {
+    const randomSpy = vi.spyOn(Math, 'random')
+    randomSpy.mockReturnValueOnce(7.5 / 78) // index 7 = major_07 (The Chariot)
+    randomSpy.mockReturnValueOnce(0.1) // upright
+    renderAtResult('')
+    expect(screen.getByText('MAJOR ARCANA VII')).toBeInTheDocument()
+    randomSpy.mockRestore()
   })
 })

@@ -27,6 +27,39 @@ const ROMAN_NUMERALS = [
   'XXI',
 ]
 
+const RANK_LABELS = [
+  '',
+  'ACE',
+  'TWO',
+  'THREE',
+  'FOUR',
+  'FIVE',
+  'SIX',
+  'SEVEN',
+  'EIGHT',
+  'NINE',
+  'TEN',
+  'PAGE',
+  'KNIGHT',
+  'QUEEN',
+  'KING',
+]
+
+const SUIT_LABELS: Record<string, string> = {
+  wands: 'WANDS',
+  cups: 'CUPS',
+  swords: 'SWORDS',
+  pentacles: 'PENTACLES',
+}
+
+function arcanaCaption(drawnCard: { id: string }): string {
+  if (drawnCard.id.startsWith('major_')) {
+    return `MAJOR ARCANA ${ROMAN_NUMERALS[Number(drawnCard.id.replace('major_', ''))]}`
+  }
+  const [suit, numStr] = drawnCard.id.split('_')
+  return `${SUIT_LABELS[suit]} · ${RANK_LABELS[Number(numStr)]}`
+}
+
 export default function ResultStep() {
   const { drawnCard, question, reset } = useReadingSession()
 
@@ -50,7 +83,7 @@ export default function ResultStep() {
       <aside className="w-full md:w-[500px] bg-surface-container-lowest/60 backdrop-blur-xl border-l border-primary/20 flex flex-col p-10">
         <div className="space-y-4 mb-stack-lg">
           <span className="font-label-caps text-[12px] tracking-[0.2em] text-primary/70">
-            MAJOR ARCANA {ROMAN_NUMERALS[Number(drawnCard.id.replace('major_', ''))]}
+            {arcanaCaption(drawnCard)}
           </span>
           <h1 className="font-display-lg text-display-lg text-primary">
             {drawnCard.nameLocal} · {drawnCard.name.toUpperCase()}

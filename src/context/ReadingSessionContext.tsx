@@ -11,16 +11,24 @@ const allContent = {
   ...minorContent,
 } as unknown as Record<string, CardContent>
 
-type SpreadType = 'single' | 'three-card' | 'celtic-cross' | null
+export type SpreadType = 'single' | 'three-card' | 'celtic-cross' | null
 
-export type RitualStep = 'intention' | 'shuffling' | 'selecting' | 'revealing' | 'result'
+export type RitualStep =
+  | 'spread-select'
+  | 'intention'
+  | 'shuffling'
+  | 'selecting'
+  | 'revealing'
+  | 'result'
 
 interface ReadingSessionValue {
   activeSpread: SpreadType
   step: RitualStep
   question: string
   drawnCard: DrawnCard | null
+  drawnCards: DrawnCard[]
   setQuestion: (question: string) => void
+  selectSpread: (spread: 'single' | 'three-card') => void
   beginShuffle: () => void
   finishShuffle: () => void
   selectCard: () => void
@@ -35,7 +43,9 @@ const ReadingSessionContext = createContext<ReadingSessionValue>({
   step: 'intention',
   question: '',
   drawnCard: null,
+  drawnCards: [],
   setQuestion: noop,
+  selectSpread: noop,
   beginShuffle: noop,
   finishShuffle: noop,
   selectCard: noop,
@@ -45,27 +55,48 @@ const ReadingSessionContext = createContext<ReadingSessionValue>({
 
 export function ReadingSessionProvider({ children }: { children: ReactNode }) {
   const [step, setStep] = useState<RitualStep>('intention')
+  const [activeSpread, setActiveSpread] = useState<SpreadType>(null)
   const [question, setQuestionState] = useState('')
   const [drawnCard, setDrawnCard] = useState<DrawnCard | null>(null)
+  const [drawnCards, setDrawnCards] = useState<DrawnCard[]>([])
 
   const value: ReadingSessionValue = {
-    activeSpread: null,
+    activeSpread,
     step,
     question,
     drawnCard,
+    drawnCards,
     setQuestion: (nextQuestion: string) => setQuestionState(nextQuestion),
+    selectSpread: (spread) => {
+      setActiveSpread(spread)
+      setStep('intention')
+    },
     beginShuffle: () => setStep('shuffling'),
     finishShuffle: () => setStep('selecting'),
     selectCard: () => {
-      const card = drawCard(allStructure, allContent)
+      const excludedIds = new Set(drawnCards.map((c) => c.id))
+      let card = drawCard(allStructure, allContent)
+      while (excludedIds.has(card.id)) {
+        card = drawCard(allStructure, allContent)
+      }
       setDrawnCard(card)
+      setDrawnCards((prev) => [...prev, card])
       setStep('revealing')
     },
-    finishReveal: () => setStep('result'),
+    finishReveal: () => {
+      const totalPositions = activeSpread === 'three-card' ? 3 : 1
+      if (drawnCards.length < totalPositions) {
+        setStep('selecting')
+      } else {
+        setStep('result')
+      }
+    },
     reset: () => {
       setStep('intention')
       setQuestionState('')
       setDrawnCard(null)
+      setDrawnCards([])
+      setActiveSpread(null)
     },
   }
 

@@ -36,6 +36,8 @@ describe('SelectStep', () => {
     await userEvent.click(cards[0])
 
     expect(screen.getByText('step: revealing')).toBeInTheDocument()
-    expect(screen.getByText(/drawnCard: major_\d{2}/)).toBeInTheDocument()
+    expect(
+      screen.getByText(/drawnCard: (major|wands|cups|swords|pentacles)_\d{2}/),
+    ).toBeInTheDocument()
   })
 })

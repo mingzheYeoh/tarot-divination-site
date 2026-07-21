@@ -91,3 +91,66 @@ describe('RevealStep', () => {
     expect(flippedCardButton).not.toHaveAccessibleName('点击翻牌')
   })
 })
+
+describe('RevealStep with a three-card spread', () => {
+  function ThreeCardSetup({
+    onReady,
+  }: {
+    onReady: (actions: {
+      selectSpread: () => void
+      selectCard: () => void
+      finishReveal: () => void
+    }) => void
+  }) {
+    const { selectSpread, selectCard, finishReveal, step } = useReadingSession()
+    onReady({
+      selectSpread: () => selectSpread('three-card'),
+      selectCard,
+      finishReveal,
+    })
+    return (
+      <>
+        {step === 'revealing' && <RevealStep />}
+        <span>step: {step}</span>
+      </>
+    )
+  }
+
+  it('shows a "1 / 3" counter and "揭示下一张" for the first two cards, then "查看解读" for the third', async () => {
+    let actions = {
+      selectSpread: () => {},
+      selectCard: () => {},
+      finishReveal: () => {},
+    }
+    render(
+      <ReadingSessionProvider>
+        <ThreeCardSetup onReady={(a) => (actions = a)} />
+      </ReadingSessionProvider>,
+    )
+    actions.selectSpread()
+
+    actions.selectCard()
+    await screen.findByText('step: revealing')
+    expect(screen.getByText('1 / 3')).toBeInTheDocument()
+    await userEvent.click(screen.getByRole('button', { name: '点击翻牌' }))
+    expect(screen.getByRole('button', { name: '揭示下一张' })).toBeInTheDocument()
+    await userEvent.click(screen.getByRole('button', { name: '揭示下一张' }))
+    await screen.findByText('step: selecting')
+
+    actions.selectCard()
+    await screen.findByText('step: revealing')
+    expect(screen.getByText('2 / 3')).toBeInTheDocument()
+    await userEvent.click(screen.getByRole('button', { name: '点击翻牌' }))
+    expect(screen.getByRole('button', { name: '揭示下一张' })).toBeInTheDocument()
+    await userEvent.click(screen.getByRole('button', { name: '揭示下一张' }))
+    await screen.findByText('step: selecting')
+
+    actions.selectCard()
+    await screen.findByText('step: revealing')
+    expect(screen.getByText('3 / 3')).toBeInTheDocument()
+    await userEvent.click(screen.getByRole('button', { name: '点击翻牌' }))
+    expect(screen.getByRole('button', { name: '查看解读' })).toBeInTheDocument()
+    await userEvent.click(screen.getByRole('button', { name: '查看解读' }))
+    expect(screen.getByText('step: result')).toBeInTheDocument()
+  })
+})

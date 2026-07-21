@@ -3,11 +3,21 @@ import { useReadingSession } from '../../context/ReadingSessionContext'
 import TarotCard from './TarotCard'
 
 export default function RevealStep() {
-  const { drawnCard, finishReveal } = useReadingSession()
+  const { drawnCard, drawnCards, activeSpread, finishReveal } = useReadingSession()
   const [isFlipped, setIsFlipped] = useState(false)
+
+  const totalPositions = activeSpread === 'three-card' ? 3 : 1
+  const currentPosition = drawnCards.length
+  const isLastPosition = currentPosition >= totalPositions
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-margin-mobile pt-32 pb-section-padding">
+      {totalPositions > 1 ? (
+        <p className="mb-stack-md font-label-caps text-label-caps text-primary tracking-[0.3em]">
+          {currentPosition} / {totalPositions}
+        </p>
+      ) : null}
+
       <div className="w-72 md:w-80 h-[500px]">
         <TarotCard
           card={drawnCard}
@@ -26,7 +36,7 @@ export default function RevealStep() {
             onClick={finishReveal}
             className="relative px-12 py-3 rounded-full border border-primary/40 bg-surface-container-lowest/30 backdrop-blur-md text-primary font-label-caps text-label-caps tracking-[0.2em] hover:bg-primary/10 transition-all active:scale-95"
           >
-            查看解读
+            {isLastPosition ? '查看解读' : '揭示下一张'}
           </button>
         </div>
       ) : null}

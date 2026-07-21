@@ -24,13 +24,13 @@ function Probe() {
 }
 
 describe('ReadingSessionContext', () => {
-  it('starts at the intention step with no question and no drawn card', () => {
+  it('starts at the spread-select step with no question and no drawn card', () => {
     render(
       <ReadingSessionProvider>
         <Probe />
       </ReadingSessionProvider>,
     )
-    expect(screen.getByText('step: intention')).toBeInTheDocument()
+    expect(screen.getByText('step: spread-select')).toBeInTheDocument()
     expect(screen.getByText('question: none')).toBeInTheDocument()
     expect(screen.getByText('drawnCard: none')).toBeInTheDocument()
   })
@@ -61,7 +61,7 @@ describe('ReadingSessionContext', () => {
     expect(screen.getByText('step: result')).toBeInTheDocument()
   })
 
-  it('reset returns to intention and clears question and drawn card', () => {
+  it('reset returns to spread-select and clears question and drawn card', () => {
     render(
       <ReadingSessionProvider>
         <Probe />
@@ -76,7 +76,7 @@ describe('ReadingSessionContext', () => {
     expect(screen.getByText('step: result')).toBeInTheDocument()
 
     act(() => screen.getByText('reset').click())
-    expect(screen.getByText('step: intention')).toBeInTheDocument()
+    expect(screen.getByText('step: spread-select')).toBeInTheDocument()
     expect(screen.getByText('question: none')).toBeInTheDocument()
     expect(screen.getByText('drawnCard: none')).toBeInTheDocument()
   })

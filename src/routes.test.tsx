@@ -2,10 +2,15 @@ import { render, screen } from '@testing-library/react'
 import { createMemoryRouter, RouterProvider } from 'react-router-dom'
 import { describe, it, expect } from 'vitest'
 import { routes } from './routes'
+import { ReadingSessionProvider } from './context/ReadingSessionContext'
 
 function renderAtPath(path: string) {
   const router = createMemoryRouter(routes, { initialEntries: [path] })
-  render(<RouterProvider router={router} />)
+  render(
+    <ReadingSessionProvider>
+      <RouterProvider router={router} />
+    </ReadingSessionProvider>,
+  )
 }
 
 describe('routes', () => {
@@ -16,7 +21,7 @@ describe('routes', () => {
 
   it('renders the draw page at /draw', () => {
     renderAtPath('/draw')
-    expect(screen.getByText('静下心来，默念你的问题')).toBeInTheDocument()
+    expect(screen.getByText('选择你的牌阵')).toBeInTheDocument()
   })
 
   it('renders the encyclopedia page at /encyclopedia', () => {

@@ -40,7 +40,7 @@ const noop = () => {}
 
 const ReadingSessionContext = createContext<ReadingSessionValue>({
   activeSpread: null,
-  step: 'intention',
+  step: 'spread-select',
   question: '',
   drawnCard: null,
   drawnCards: [],
@@ -54,7 +54,7 @@ const ReadingSessionContext = createContext<ReadingSessionValue>({
 })
 
 export function ReadingSessionProvider({ children }: { children: ReactNode }) {
-  const [step, setStep] = useState<RitualStep>('intention')
+  const [step, setStep] = useState<RitualStep>('spread-select')
   const [activeSpread, setActiveSpread] = useState<SpreadType>(null)
   const [question, setQuestionState] = useState('')
   const [drawnCard, setDrawnCard] = useState<DrawnCard | null>(null)
@@ -92,7 +92,7 @@ export function ReadingSessionProvider({ children }: { children: ReactNode }) {
       }
     },
     reset: () => {
-      setStep('intention')
+      setStep('spread-select')
       setQuestionState('')
       setDrawnCard(null)
       setDrawnCards([])

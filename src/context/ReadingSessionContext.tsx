@@ -14,12 +14,7 @@ const allContent = {
 export type SpreadType = 'single' | 'three-card' | 'celtic-cross' | null
 
 export type RitualStep =
-  | 'spread-select'
-  | 'intention'
-  | 'shuffling'
-  | 'selecting'
-  | 'revealing'
-  | 'result'
+  'spread-select' | 'intention' | 'shuffling' | 'selecting' | 'revealing' | 'result'
 
 interface ReadingSessionValue {
   activeSpread: SpreadType

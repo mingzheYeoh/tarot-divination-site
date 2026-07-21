@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import { useReadingSession } from '../../context/ReadingSessionContext'
+import { useReadingSession, spreadSize } from '../../context/ReadingSessionContext'
 import TarotCard from './TarotCard'
 
 export default function RevealStep() {
   const { drawnCard, drawnCards, activeSpread, finishReveal } = useReadingSession()
   const [isFlipped, setIsFlipped] = useState(false)
 
-  const totalPositions = activeSpread === 'three-card' ? 3 : 1
+  const totalPositions = spreadSize(activeSpread)
   const currentPosition = drawnCards.length
   const isLastPosition = currentPosition >= totalPositions
 

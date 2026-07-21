@@ -16,6 +16,16 @@ export type SpreadType = 'single' | 'three-card' | 'celtic-cross' | null
 export type RitualStep =
   'spread-select' | 'intention' | 'shuffling' | 'selecting' | 'revealing' | 'result'
 
+const SPREAD_SIZE: Record<NonNullable<SpreadType>, number> = {
+  single: 1,
+  'three-card': 3,
+  'celtic-cross': 10,
+}
+
+export function spreadSize(spread: SpreadType): number {
+  return spread ? SPREAD_SIZE[spread] : 1
+}
+
 interface ReadingSessionValue {
   activeSpread: SpreadType
   step: RitualStep
@@ -79,7 +89,7 @@ export function ReadingSessionProvider({ children }: { children: ReactNode }) {
       setStep('revealing')
     },
     finishReveal: () => {
-      const totalPositions = activeSpread === 'three-card' ? 3 : 1
+      const totalPositions = spreadSize(activeSpread)
       if (drawnCards.length < totalPositions) {
         setStep('selecting')
       } else {
